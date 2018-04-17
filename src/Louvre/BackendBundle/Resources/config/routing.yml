@@ -1,0 +1,13 @@
+louvre_backend_homepage:
+    path:     /homepage
+    defaults: { _controller: LouvreBackendBundle:Backend:index }
+
+louvre_backend_commande:
+    path:    /commande
+    defaults: { _controller: LouvreBackendBundle:Backend:commande }
+
+louvre_backend_billets:
+    path:    /commande/{id}/billets
+    defaults: { _controller: LouvreBackendBundle:Backend:billets }
+    requirements:
+        id: \d+
