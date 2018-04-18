@@ -16,10 +16,14 @@ class BackendController extends Controller
         return $this->render('LouvreBackendBundle:Backend:commande.html.twig');
     }
 
-    public function billetsAction($id)
+    public function billetsAction()
     {
-        return $this->render('LouvreBackendBundle:Backend:billets.html.twig',
-            array('id' => $id)
-        );
+        return $this->render('LouvreBackendBundle:Backend:billets.html.twig');
+
+    }
+
+    public function contactAction()
+    {
+        return $this->render('LouvreBackendBundle:Backend:contact.html.twig');
     }
 }
