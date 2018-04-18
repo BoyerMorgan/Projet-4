@@ -7,7 +7,19 @@ louvre_backend_commande:
     defaults: { _controller: LouvreBackendBundle:Backend:commande }
 
 louvre_backend_billets:
-    path:    /commande/{id}/billets
+    path:    /commande/billets
     defaults: { _controller: LouvreBackendBundle:Backend:billets }
     requirements:
-        id: \d+
+
+louvre_backend_confirmation:
+    path:    /commande/confirmation
+    defaults: { _controller: LouvreBackendBundle:Backend:confirmation }
+
+louvre_backend_paiement:
+    path:    /commande/paiement
+    defaults: { _controller: LouvreBackendBundle:Backend:confirmation }
+
+louvre_backend_contact:
+    path: /contact
+    defaults: { _ controller: LouvreBackendBundle:Backend:contact}
+
