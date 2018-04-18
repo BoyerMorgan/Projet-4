@@ -194,28 +194,4 @@ class Tickets_command
     {
         return $this->priceTicket;
     }
-
-    /**
-     * Set order
-     *
-     * @param \Louvre\BackendBundle\Entity\Command_order $order
-     *
-     * @return Tickets_command
-     */
-    public function setOrder(\Louvre\BackendBundle\Entity\Command_order $order)
-    {
-        $this->order = $order;
-
-        return $this;
-    }
-
-    /**
-     * Get order
-     *
-     * @return \Louvre\BackendBundle\Entity\Command_order
-     */
-    public function getOrder()
-    {
-        return $this->order;
-    }
 }

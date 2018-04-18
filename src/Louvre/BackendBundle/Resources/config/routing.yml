@@ -4,7 +4,7 @@ louvre_backend_homepage:
 
 louvre_backend_commande:
     path:    /commande
-    defaults: { _controller: LouvreBackendBundle:Backend:commande }
+    defaults: { _controller: LouvreBackendBundle:Backend:order }
 
 louvre_backend_billets:
     path:    /commande/billets

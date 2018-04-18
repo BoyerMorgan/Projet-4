@@ -66,7 +66,7 @@ class Command_order
 
     /**
      * @var ArrayCollection $tickets
-     * @ORM\OneToMany(targetEntity="Louvre\BackendBundle\Entity\Tickets_command", mappedBy="order", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Louvre\BackendBundle\Entity\Tickets_command", mappedBy="idOrder", cascade={"persist"})
      */
     private $tickets;
 
@@ -262,29 +262,5 @@ class Command_order
     public function getTickets()
     {
         return $this->tickets;
-    }
-
-    /**
-     * Set nbTickets
-     *
-     * @param integer $nbTickets
-     *
-     * @return Command_order
-     */
-    public function setNbTickets($nbTickets)
-    {
-        $this->nbTickets = $nbTickets;
-
-        return $this;
-    }
-
-    /**
-     * Get nbTickets
-     *
-     * @return integer
-     */
-    public function getNbTickets()
-    {
-        return $this->nbTickets;
     }
 }
