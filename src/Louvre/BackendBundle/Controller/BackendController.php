@@ -2,11 +2,12 @@
 
 namespace Louvre\BackendBundle\Controller;
 
-use Louvre\BackendBundle\Entity\Command_order;
-use Louvre\BackendBundle\Form\Command_orderType;
+use Louvre\BackendBundle\Entity\Command;
+use Louvre\BackendBundle\Entity\Tickets;
+use Louvre\BackendBundle\Form\CommandType;
+use Louvre\BackendBundle\Form\TicketsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 
 
 class BackendController extends Controller
@@ -18,9 +19,9 @@ class BackendController extends Controller
 
     public function orderAction(Request $request)
     {
-        $order = new Command_order();
+        $order = new Command();
 
-        $form = $this->get('form.factory')->create(Command_orderType::class, $order);
+        $form = $this->get('form.factory')->create(CommandType::class, $order);
 
         if ($request->isMethod('POST')) {
 
@@ -28,10 +29,16 @@ class BackendController extends Controller
 
             if ($form->isValid()) {
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($order);
+               /* $session = $request->getSession();
+                $session->set(
+                    'mail', $order->getMail(),
+                    'visitDate', $order->getVisitDate(),
+                    'halfDay', $order->getHalfDay(),
+                    'nbTickets', $order->getNbTickets()
+                );*/
 
-                return $this->redirectToRoute('louvre_backend_billets');
+
+                return $this->redirectToRoute('louvre_backend_confirmation');
             }
         }
 
@@ -40,10 +47,9 @@ class BackendController extends Controller
         ));
     }
 
-    public function billetsAction()
+    public function confirmationAction()
     {
-        return $this->render('LouvreBackendBundle:Backend:billets.html.twig');
-
+        return $this->render('LouvreBackendBundle:Backend:confirmation.html.twig');
     }
 
     public function contactAction()

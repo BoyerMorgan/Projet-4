@@ -5,13 +5,13 @@ namespace Louvre\BackendBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Tickets_command
+ * Tickets
  *
- * @ORM\Table(name="tickets_command")
- * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\Tickets_commandRepository")
+ * @ORM\Table(name="tickets")
+ * @ORM\Entity(repositoryClass="TicketsRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Tickets_command
+class Tickets
 {
     /**
      * @var int
@@ -30,9 +30,16 @@ class Tickets_command
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="forename", type="string", length=25)
+     */
+    private $forename;
+
+    /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="datetimetz")
+     * @ORM\Column(name="birthDate", type="datetime")
      */
     private $birthDate;
 
@@ -57,7 +64,7 @@ class Tickets_command
     private $country;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Louvre\BackendBundle\Entity\Command_order")
+     * @ORM\ManyToOne(targetEntity="Command")
      * @ORM\JoinColumn(nullable=false)
      */
     private $order;
@@ -79,7 +86,7 @@ class Tickets_command
      *
      * @param string $name
      *
-     * @return Tickets_command
+     * @return Tickets
      */
     public function setName($name)
     {
@@ -103,7 +110,7 @@ class Tickets_command
      *
      * @param \DateTime $birthDate
      *
-     * @return Tickets_command
+     * @return Tickets
      */
     public function setBirthDate($birthDate)
     {
@@ -127,7 +134,7 @@ class Tickets_command
      *
      * @param boolean $reduced
      *
-     * @return Tickets_command
+     * @return Tickets
      */
     public function setReduced($reduced)
     {
@@ -151,7 +158,7 @@ class Tickets_command
      *
      * @param string $country
      *
-     * @return Tickets_command
+     * @return Tickets
      */
     public function setCountry($country)
     {
@@ -176,7 +183,7 @@ class Tickets_command
      *
      * @param integer $priceTicket
      *
-     * @return Tickets_command
+     * @return Tickets
      */
     public function setPriceTicket($priceTicket)
     {
@@ -198,11 +205,11 @@ class Tickets_command
     /**
      * Set order
      *
-     * @param \Louvre\BackendBundle\Entity\Command_order $order
+     * @param \Louvre\BackendBundle\Entity\Command $order
      *
-     * @return Tickets_command
+     * @return Tickets
      */
-    public function setOrder(\Louvre\BackendBundle\Entity\Command_order $order)
+    public function setOrder(\Louvre\BackendBundle\Entity\Command $order)
     {
         $this->order = $order;
 
@@ -212,7 +219,7 @@ class Tickets_command
     /**
      * Get order
      *
-     * @return \Louvre\BackendBundle\Entity\Command_order
+     * @return \Louvre\BackendBundle\Entity\Command
      */
     public function getOrder()
     {

@@ -8,6 +8,82 @@ Billetterie
 <h2>Informations concernant la commande :</h2>
 
 <div class="well">
-    {{ form(form) }}
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+
+    {{ form_errors(form) }}
+
+    {{ form_row(form.visitDate) }}
+
+    {{ form_row(form.halfDay) }}
+
+    {{ form_row(form.mail) }}
+
+    <h3>Billets</h3>
+
+    <div class="form-group">
+
+        {{ form_row(form.tickets) }}<br />
+        <a href="#" id="add_ticket" class="btn btn-default">Ajouter un billet</a>
+
+    </div>
+
+    {{ form_widget(form.save, {'attr': {'class': 'form-control'}}) }}
+
+    {{ form_rest(form) }}
+
+    {{ form_end(form) }}
 </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            var $container = $('div#louvre_backendbundle_command_order_tickets')
+
+            var index = $container.find(':input').length;
+
+            $('#add_ticket').click(function(e){
+                addTicket($container);
+
+                e.preventDefault();
+                return false;
+            });
+
+            if (index == 0) {
+                addTicket($container);
+            } else {
+
+                $container.children('div').each(function() {
+                    addDeleteLink($(this));
+                });
+            }
+
+            function addTicket($container) {
+                var template = $container.attr('data-prototype')
+                    .replace(/__name__label__/g, 'Billet n°' + (index+1))
+                    .replace(/__name__/g,       index)
+                    ;
+
+                var $prototype = $(template);
+
+                addDeleteLink($prototype)
+                $container.append($prototype);
+                index++;
+            }
+
+            function addDeleteLink($prototype) {
+                var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer billet</a>');
+
+                $prototype.append($deleteLink);
+
+                $deleteLink.click(function(e) {
+                    $prototype.remove();
+
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        });
+    </script>
+
 {% endblock %}

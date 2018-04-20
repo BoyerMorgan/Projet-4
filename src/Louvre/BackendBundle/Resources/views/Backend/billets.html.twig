@@ -7,6 +7,11 @@
 {% block body %}
 <h1>Informations relatives à la commande</h1>
 
-<p>Ici s'affiche le formulaire de remplissage de billets</p>
+    <div class="well">
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
 
 {% endblock %}

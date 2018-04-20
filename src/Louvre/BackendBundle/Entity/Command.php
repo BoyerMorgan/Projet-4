@@ -6,13 +6,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Command_order
+ * Command
  *
- * @ORM\Table(name="command_order")
- * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\Command_orderRepository")
+ * @ORM\Table(name="command")
+ * @ORM\Entity(repositoryClass="CommandRepository")
  * @ORM\HasLifecycleCallbacks()
  */
-class Command_order
+class Command
 {
     /**
      * @var int
@@ -59,14 +59,8 @@ class Command_order
     private $halfDay;
 
     /**
-     * @var int
-     * @ORM\Column(name="nb_billets", type="integer")
-     */
-    private $nbTickets = 1;
-
-    /**
      * @var ArrayCollection $tickets
-     * @ORM\OneToMany(targetEntity="Louvre\BackendBundle\Entity\Tickets_command", mappedBy="order", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Louvre\BackendBundle\Entity\Tickets", mappedBy="order", cascade={"persist"})
      */
     private $tickets;
 
@@ -91,7 +85,7 @@ class Command_order
      *
      * @param string $mail
      *
-     * @return Command_order
+     * @return Command
      */
     public function setMail($mail)
     {
@@ -115,7 +109,7 @@ class Command_order
      *
      * @param \DateTime $commandDate
      *
-     * @return Command_order
+     * @return Command
      */
     public function setCommandDate($commandDate)
     {
@@ -139,7 +133,7 @@ class Command_order
      *
      * @param \DateTime $visitDate
      *
-     * @return Command_order
+     * @return Command
      */
     public function setVisitDate($visitDate)
     {
@@ -163,7 +157,7 @@ class Command_order
      *
      * @param integer $price
      *
-     * @return Command_order
+     * @return Command
      */
     public function setPrice($price)
     {
@@ -187,7 +181,7 @@ class Command_order
      *
      * @param boolean $halfDay
      *
-     * @return Command_order
+     * @return Command
      */
     public function setHalfDay($halfDay)
     {
@@ -207,39 +201,16 @@ class Command_order
     }
 
     /**
-     * Set idTicket
-     *
-     * @param integer $idOrder
-     *
-     * @return Command_order
-     */
-    public function setIdOrder($idOrder)
-    {
-        $this->idOrder = $idOrder;
-
-        return $this;
-    }
-
-    /**
-     * Get idTicket
-     *
-     * @return int
-     */
-    public function getIdOrder()
-    {
-        return $this->idOrder;
-    }
-
-    /**
      * Add ticket
      *
-     * @param \Louvre\BackendBundle\Entity\Tickets_command $ticket
+     * @param \Louvre\BackendBundle\Entity\Tickets $ticket
      *
-     * @return Command_order
+     * @return Command
      */
-    public function addTicket(\Louvre\BackendBundle\Entity\Tickets_command $ticket)
+    public function addTicket(\Louvre\BackendBundle\Entity\Tickets $ticket)
     {
         $this->tickets[] = $ticket;
+        $ticket->setOrder($this);
 
         return $this;
     }
@@ -247,9 +218,9 @@ class Command_order
     /**
      * Remove ticket
      *
-     * @param \Louvre\BackendBundle\Entity\Tickets_command $ticket
+     * @param \Louvre\BackendBundle\Entity\Tickets $ticket
      */
-    public function removeTicket(\Louvre\BackendBundle\Entity\Tickets_command $ticket)
+    public function removeTicket(\Louvre\BackendBundle\Entity\Tickets $ticket)
     {
         $this->tickets->removeElement($ticket);
     }
@@ -264,27 +235,4 @@ class Command_order
         return $this->tickets;
     }
 
-    /**
-     * Set nbTickets
-     *
-     * @param integer $nbTickets
-     *
-     * @return Command_order
-     */
-    public function setNbTickets($nbTickets)
-    {
-        $this->nbTickets = $nbTickets;
-
-        return $this;
-    }
-
-    /**
-     * Get nbTickets
-     *
-     * @return integer
-     */
-    public function getNbTickets()
-    {
-        return $this->nbTickets;
-    }
 }
