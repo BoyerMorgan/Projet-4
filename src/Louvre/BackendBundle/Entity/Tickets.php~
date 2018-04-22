@@ -44,17 +44,18 @@ class Tickets
     private $birthDate;
 
     /**
-     * @var int
-     * @ORM\Column(name="priceTicket", type="integer")
-     */
-    private $priceTicket;
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="reduced", type="boolean")
      */
     private $reduced;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="price", type="integer")
+     */
+    private $price;
 
     /**
      * @var string
@@ -179,30 +180,6 @@ class Tickets
 
 
     /**
-     * Set priceTicket
-     *
-     * @param integer $priceTicket
-     *
-     * @return Tickets
-     */
-    public function setPriceTicket($priceTicket)
-    {
-        $this->priceTicket = $priceTicket;
-
-        return $this;
-    }
-
-    /**
-     * Get priceTicket
-     *
-     * @return integer
-     */
-    public function getPriceTicket()
-    {
-        return $this->priceTicket;
-    }
-
-    /**
      * Set order
      *
      * @param \Louvre\BackendBundle\Entity\Command $order
@@ -224,5 +201,29 @@ class Tickets
     public function getOrder()
     {
         return $this->order;
+    }
+
+    /**
+     * Set forename
+     *
+     * @param string $forename
+     *
+     * @return Tickets
+     */
+    public function setForename($forename)
+    {
+        $this->forename = $forename;
+
+        return $this;
+    }
+
+    /**
+     * Get forename
+     *
+     * @return string
+     */
+    public function getForename()
+    {
+        return $this->forename;
     }
 }

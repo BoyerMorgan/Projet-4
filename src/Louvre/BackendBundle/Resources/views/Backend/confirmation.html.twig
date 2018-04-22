@@ -1,0 +1,29 @@
+{% extends "LouvreBackendBundle::layout.html.twig" %}
+
+{% block title %}
+Confirmation avant paiement
+{% endblock %}
+
+{% block body %}
+    <div class="well">
+        <h2>Récapitulatif de commande</h2>
+        <div class recap>
+           Mail de contact : {{ app.session.get('order').mail }}<br/>
+           Date de la visite : {{ app.session.get('order').visitDate|date("d/m/Y") }}
+        </div>
+        {% for ticket in app.session.get('order').tickets %}
+            <h3> Billet {{ loop.index }}</h3>
+            <ul>
+                <li>Nom : {{ ticket.name }}</li>
+                <li>Prénom : {{ ticket.forename }}</li>
+                <li>Date de naissance : {{ ticket.birthDate|date("d/m/Y") }}</li>
+                <li>Prix du billet : {{ app.session.get('order').price['ticket' ~ loop.index] }}€</li>
+            </ul>
+                {% if ticket.reduced %}
+                    <em>Billet à tarif réduit - Veuillez vous munir du justificatif adéquat sous peine de vous voir refuser l'entrée au musée</em>
+                {% endif %}
+
+        {% endfor %}
+        <h3>Prix de la commande : {{ app.session.get('order').price.total }}€</h3>
+    </div>
+{% endblock %}

@@ -3,11 +3,10 @@
 namespace Louvre\BackendBundle\Controller;
 
 use Louvre\BackendBundle\Entity\Command;
-use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Form\CommandType;
-use Louvre\BackendBundle\Form\TicketsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 
 class BackendController extends Controller
@@ -19,27 +18,25 @@ class BackendController extends Controller
 
     public function orderAction(Request $request)
     {
+        $session = $this->get('session');
+
         $order = new Command();
-
         $form = $this->get('form.factory')->create(CommandType::class, $order);
+        $form->handleRequest($request);
 
-        if ($request->isMethod('POST')) {
+        if ($request->isMethod('POST') && $form->isValid()) {
 
-            $form->handleRequest($request);
+            //Appel au service de calcul du prix total
+            $calculator = $this->container->get('louvre_backend.pricecalculator');
+            $price = $calculator->commandPrice($order);
 
-            if ($form->isValid()) {
+            $order->setPrice($price);
 
-               /* $session = $request->getSession();
-                $session->set(
-                    'mail', $order->getMail(),
-                    'visitDate', $order->getVisitDate(),
-                    'halfDay', $order->getHalfDay(),
-                    'nbTickets', $order->getNbTickets()
-                );*/
+            $session->set(
+                'order', $order
+            );
+            return $this->redirectToRoute('louvre_backend_confirmation');
 
-
-                return $this->redirectToRoute('louvre_backend_confirmation');
-            }
         }
 
         return $this->render('LouvreBackendBundle:Backend:commande.html.twig', array(

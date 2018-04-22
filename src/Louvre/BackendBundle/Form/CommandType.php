@@ -18,15 +18,19 @@ class CommandType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('mail', TextType::class)
-            ->add('visitDate', DateType::class)
-            ->add('halfDay', CheckboxType::class, array('required' => false))
+        $builder->add('mail', TextType::class, array('label' => 'Adresse email'))
+            ->add('visitDate', DateType::class, array('label' => 'Date de visite souhaitée'))
+            ->add('halfDay', CheckboxType::class, array(
+                'required' => false,
+                'label' => 'Billet demi-journée'
+            ))
             ->add('tickets', CollectionType::class, array(
                 'entry_type' => TicketsType::class,
                 'allow_add' => true,
-                'allow_delete' =>true
+                'allow_delete' =>true,
+                'label' => 'Billets'
             ))
-            ->add('save', SubmitType::class);
+            ->add('save', SubmitType::class, array('label' => 'Valider la commande'));
     }
     
     /**
