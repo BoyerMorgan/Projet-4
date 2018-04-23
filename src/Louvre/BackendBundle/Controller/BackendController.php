@@ -53,4 +53,9 @@ class BackendController extends Controller
     {
         return $this->render('LouvreBackendBundle:Backend:contact.html.twig');
     }
+
+    public function cgvAction()
+    {
+        return $this->render('LouvreBackendBundle:Backend:cgv.html.twig');
+    }
 }

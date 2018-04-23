@@ -23,3 +23,6 @@ louvre_backend_contact:
     path: /contact
     defaults: { _controller: LouvreBackendBundle:Backend:contact }
 
+louvre_backend_cgv:
+    path: /cgv
+    defaults: { _controller: LouvreBackendBundle:Backend:cgv}

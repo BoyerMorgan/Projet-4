@@ -7,7 +7,7 @@ Confirmation avant paiement
 {% block body %}
     <div class="well">
         <h2>Récapitulatif de commande</h2>
-        <div class recap>
+        <div class="recap">
            Mail de contact : {{ app.session.get('order').mail }}<br/>
            Date de la visite : {{ app.session.get('order').visitDate|date("d/m/Y") }}
         </div>
@@ -25,5 +25,10 @@ Confirmation avant paiement
 
         {% endfor %}
         <h3>Prix de la commande : {{ app.session.get('order').price.total }}€</h3>
+
+        <form action="#">
+        J'ai lu et j'accepte <a href={{ path("louvre_backend_cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv">
+            <button class="btn btn-primary">Passer au paiement</button>
+        </form>
     </div>
 {% endblock %}

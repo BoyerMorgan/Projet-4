@@ -21,10 +21,10 @@ class LouvrePricecalculator
         foreach ($tickets as $ticket)
         {
             $number++;
-            $birthdayDate = date("Y-m-d", strtotime($ticket->getBirthDate()));
+            $birthDate = date("Y-m-d", strtotime($ticket->getBirthDate()));
 
-            $dateNaissance = new \DateTime($birthdayDate);
-            $interval = $dateNaissance->diff($dateActual);
+            $birthDay = new \DateTime($birthDate);
+            $interval = $birthDay->diff($dateActual);
             $age = $interval->format('%Y');
 
             if (intval($age) >= 12 && intval($age) < 60 && !$ticket->getReduced()) {
