@@ -65,11 +65,15 @@ class Tickets
     private $country;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Command")
+     * @ORM\ManyToOne(targetEntity="Command", inversedBy="tickets")
      * @ORM\JoinColumn(nullable=false)
      */
     private $order;
 
+    public function __construct(Command $order = null)
+    {
+        $this->order = $order;
+    }
 
 
     /**

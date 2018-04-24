@@ -8,27 +8,34 @@ Confirmation avant paiement
     <div class="well">
         <h2>Récapitulatif de commande</h2>
         <div class="recap">
-           Mail de contact : {{ app.session.get('order').mail }}<br/>
-           Date de la visite : {{ app.session.get('order').visitDate|date("d/m/Y") }}
+           Mail de contact : {{ order.mail }}<br/>
+           Date de la visite : {{ order.visitDate|date("d/m/Y") }}
         </div>
-        {% for ticket in app.session.get('order').tickets %}
+        {% for ticket in order.tickets %}
             <h3> Billet {{ loop.index }}</h3>
             <ul>
                 <li>Nom : {{ ticket.name }}</li>
                 <li>Prénom : {{ ticket.forename }}</li>
                 <li>Date de naissance : {{ ticket.birthDate|date("d/m/Y") }}</li>
-                <li>Prix du billet : {{ app.session.get('order').price['ticket' ~ loop.index] }}€</li>
+                <li>Prix du billet : <strong>{{ ticket.price }}€</strong></li>
+
             </ul>
                 {% if ticket.reduced %}
                     <em>Billet à tarif réduit - Veuillez vous munir du justificatif adéquat sous peine de vous voir refuser l'entrée au musée</em>
                 {% endif %}
 
         {% endfor %}
-        <h3>Prix de la commande : {{ app.session.get('order').price.total }}€</h3>
+        <h3>Prix total de la commande : {{ order.price }} €</h3>
 
         <form action="#">
-        J'ai lu et j'accepte <a href={{ path("louvre_backend_cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv">
-            <button class="btn btn-primary">Passer au paiement</button>
+        J'ai lu et j'accepte <a href={{ path("louvre_backend_cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required>
+            <button class="btn btn-success btn-lg">Passer au paiement</button>
         </form>
+        <p>
+        <a class="btn btn-info" href= {{ path("louvre_backend_commande") }}> Retourner à la commande </a>
+        </p>
+        <p>
+            <a class="btn btn-info" href= {{ path("louvre_backend_homepage") }}>Retourner à l'accueil</a>
+        </p>
     </div>
 {% endblock %}
