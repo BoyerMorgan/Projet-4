@@ -21,7 +21,10 @@ class CommandType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('mail', TextType::class, array('label' => 'Adresse email'))
-            ->add('visitDate', DateType::class, array('label' => 'Date de visite souhaitée'))
+            ->add('visitDate', DateType::class, array(
+                'label' => 'Date de visite souhaitée',
+                'format' => 'dd-MM-yyyy'
+            ))
             ->add('halfDay', CheckboxType::class, array(
                 'required' => false,
                 'label' => 'Billet demi-journée'

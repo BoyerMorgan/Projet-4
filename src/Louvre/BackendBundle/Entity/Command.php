@@ -4,6 +4,8 @@ namespace Louvre\BackendBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Louvre\BackendBundle\Validator\Checkday;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -28,6 +30,10 @@ class Command
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
+     * @Assert\Email(
+     *     message = "Veuillez entrer une adresse mail valide.",
+     *     checkMX= true
+     * )
      */
     private $mail;
 
@@ -42,6 +48,11 @@ class Command
      * @var \DateTime
      *
      * @ORM\Column(name="visitDate", type="datetime")
+     * @Assert\GreaterThanOrEqual(
+     *     "today",
+     *     message = "Il n'est pas possible de réserver un billet pour une date antérieure à celle du jour."
+     * )
+     * @Checkday()
      */
     private $visitDate;
 
@@ -69,12 +80,14 @@ class Command
     /**
      * @var Tickets[]|ArrayCollection $tickets
      * @ORM\OneToMany(targetEntity="Louvre\BackendBundle\Entity\Tickets", mappedBy="order", cascade={"persist"})
+     * @Assert\Valid()
      */
     private $tickets;
 
     public function __construct()
     {
         $this->commandDate = new \Datetime();
+        $this->visitDate = new \Datetime();
         $this->tickets = new ArrayCollection();
 
 

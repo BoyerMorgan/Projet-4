@@ -23,13 +23,19 @@ class TicketsType extends AbstractType
             ->add('forename', TextType::class, array('label' => 'Prénom'))
             ->add('birthDate', BirthdayType::class, array(
                 'label' =>'Date de naissance',
+                'format' => 'dd-MM-yyyy',
                 'input' => 'string'
             ))
             ->add('reduced', CheckboxType::class, array(
                 'required' => false,
                 'label' => 'Tarif réduit'
             ))
-            ->add('country', CountryType::class, array('label' => 'Pays de résidence'));
+            ->add('country', CountryType::class, array(
+                'label' => 'Pays de résidence',
+                'preferred_choices' => array(
+                    'FR',
+                )
+            ));
 
     }
     

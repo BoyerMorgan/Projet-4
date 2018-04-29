@@ -31,11 +31,7 @@ class BackendController extends Controller
 
         if ($request->isMethod('POST') && $form->isValid()) {
 
-            //Appel au service de calcul du prix total
-            //$calculator = $this->container->get('louvre_backend.pricecalculator');
-            //$price = $calculator->commandPrice($order);
-
-            //$order->setPrice($price);
+            //Création du nombre de Tickets demandé par l'utilisateur
             for($i=1; $i<=$order->getNbTickets(); $i++)
             {
                 $ticket = new Tickets();
@@ -46,7 +42,14 @@ class BackendController extends Controller
                 'order', $order
             );
 
-            return $this->redirectToRoute('louvre_backend_billets');
+            if ($this->container->get('louvre_backend.datevalidator'))
+            {
+                return $this->redirectToRoute('louvre_backend_billets');
+            }
+            else {
+                return $this->redirectToRoute('louvre_backend_order');
+            }
+
         }
 
         return $this->render('LouvreBackendBundle:Backend:commande.html.twig', array(

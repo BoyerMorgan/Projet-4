@@ -3,12 +3,13 @@
 namespace Louvre\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tickets
  *
  * @ORM\Table(name="tickets")
- * @ORM\Entity(repositoryClass="TicketsRepository")
+ * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\TicketsRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Tickets
@@ -26,6 +27,12 @@ class Tickets
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=25)
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 50,
+     *     minMessage="Votre nom ne peut pas faire moins de {{ limit }} caractères.",
+     *     maxMessage="Votre nom ne peut pas faire plus de {{ limite }} caractères"
+     * )
      */
     private $name;
 
@@ -33,6 +40,12 @@ class Tickets
      * @var string
      *
      * @ORM\Column(name="forename", type="string", length=25)
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 50,
+     *     minMessage="Votre nom ne peut pas faire moins de {{ limit }} caractères.",
+     *     maxMessage="Votre nom ne peut pas faire plus de {{ limite }} caractères"
+     * )
      */
     private $forename;
 
@@ -40,6 +53,10 @@ class Tickets
      * @var \DateTime
      *
      * @ORM\Column(name="birthDate", type="datetime")
+     * @Assert\LessThan(
+     *     "today",
+     *     message = "Merci de vérifier votre date de naissance"
+     * )
      */
     private $birthDate;
 
@@ -61,6 +78,7 @@ class Tickets
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255)
+     * @Assert\Country
      */
     private $country;
 

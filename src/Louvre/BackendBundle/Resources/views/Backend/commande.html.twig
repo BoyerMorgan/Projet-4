@@ -28,6 +28,11 @@ Billetterie
     {{ form_row(form.visitDate) }}
 
     {{ form_row(form.halfDay) }}
+    <div>
+        {% for message in app.session.flashbag.get('erreur') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
 
     {{ form_row(form.mail) }}
 

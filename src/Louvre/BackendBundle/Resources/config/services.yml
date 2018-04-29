@@ -5,3 +5,6 @@ services:
 
     louvre_backend.pricecalculator:
         class: Louvre\BackendBundle\PriceCalculator\LouvrePricecalculator
+
+    louvre_backend.datevalidator:
+        class: Louvre\BackendBundle\DateValidator\LouvreDateValidator
