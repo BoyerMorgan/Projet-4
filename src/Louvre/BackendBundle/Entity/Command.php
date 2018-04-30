@@ -4,8 +4,9 @@ namespace Louvre\BackendBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Louvre\BackendBundle\Validator\Checkday;
+use Louvre\BackendBundle\Validator as MyAssert;
 use Symfony\Component\Validator\Constraints as Assert;
+
 
 
 /**
@@ -14,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="command")
  * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\CommandRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @MyAssert\Ticket()
  */
 class Command
 {
@@ -52,7 +54,7 @@ class Command
      *     "today",
      *     message = "Il n'est pas possible de réserver un billet pour une date antérieure à celle du jour."
      * )
-     * @Checkday()
+     * @MyAssert\Checkday()
      */
     private $visitDate;
 

@@ -3,6 +3,8 @@
 namespace Louvre\BackendBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Louvre\BackendBundle\Entity\Command;
+
 /**
  * Command_Repository
  *
@@ -11,4 +13,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class CommandRepository extends EntityRepository
 {
+    public function countTickets($date)
+    {
+
+        $queryBuilder = $this->createQueryBuilder('c');
+
+        $ticketsSold = $queryBuilder
+            ->select('count(ticket.id)')
+            ->where('c.visitDate = :visitDate')
+            ->setParameter('visitDate', $date)
+            ->innerJoin('c.tickets', 'ticket')
+            ;
+
+        return $ticketsSold
+            ->getQuery()
+            ->getSingleScalarResult()
+            ;
+    }
 }

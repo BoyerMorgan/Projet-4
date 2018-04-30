@@ -6,10 +6,7 @@ use Louvre\BackendBundle\Entity\Command;
 use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Form\BilletType;
 use Louvre\BackendBundle\Form\CommandType;
-use Louvre\BackendBundle\Form\TicketsType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -32,24 +29,16 @@ class BackendController extends Controller
         if ($request->isMethod('POST') && $form->isValid()) {
 
             //Création du nombre de Tickets demandé par l'utilisateur
-            for($i=1; $i<=$order->getNbTickets(); $i++)
-            {
+            for ($i = 1; $i <= $order->getNbTickets(); $i++) {
                 $ticket = new Tickets();
-              $order->addTicket($ticket);
+                $order->addTicket($ticket);
             }
 
             $session->set(
                 'order', $order
             );
 
-            if ($this->container->get('louvre_backend.datevalidator'))
-            {
-                return $this->redirectToRoute('louvre_backend_billets');
-            }
-            else {
-                return $this->redirectToRoute('louvre_backend_order');
-            }
-
+            return $this->redirectToRoute('louvre_backend_billets');
         }
 
         return $this->render('LouvreBackendBundle:Backend:commande.html.twig', array(
