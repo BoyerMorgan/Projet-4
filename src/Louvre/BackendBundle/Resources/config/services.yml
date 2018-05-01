@@ -6,14 +6,14 @@ services:
     louvre_backend.pricecalculator:
         class: Louvre\BackendBundle\PriceCalculator\LouvrePricecalculator
 
-    louvre_backend.louvrevalidator:
-        class: Louvre\BackendBundle\DateValidator\LouvreValidator
-        arguments:
-            - '@session'
-
     louvre_backend.ticketvalidator:
         class: Louvre\BackendBundle\Validator\TicketValidator
         tags:
-            - { name: validator.constraint_validator }
+            - { name: validator.constraint_validator, alias: validator.backend.ticketvalidator }
         arguments:
             - '@doctrine.orm.entity_manager'
+
+    louvre_backend.hourvalidator:
+         class: Louvre\BackendBundle\Validator\HourValidator
+         tags:
+            - { name: validator.constraint_validator, alias: validator.backend.hourvalidator }

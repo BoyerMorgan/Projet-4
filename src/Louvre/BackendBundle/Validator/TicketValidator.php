@@ -16,6 +16,11 @@ class TicketValidator extends ConstraintValidator
      */
     private $commandRepository;
 
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->commandRepository = $entityManager->getRepository('LouvreBackendBundle:Command');
+    }
+
     /**
      * Checks if the passed value is valid.
      *
@@ -40,8 +45,4 @@ class TicketValidator extends ConstraintValidator
         }
     }
 
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-        $this->commandRepository = $entityManager->getRepository('LouvreBackendBundle:Command');
-    }
 }

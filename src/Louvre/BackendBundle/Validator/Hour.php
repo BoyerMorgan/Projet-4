@@ -7,9 +7,9 @@ use Symfony\Component\Validator\Constraint;
 /**
  * @Annotation
  */
-class Ticket extends Constraint
+class Hour extends Constraint
 {
-    public $message = 'Plus de place pour ce jour-ci';
+    public $message = 'Vous ne pouvez pas prendre billet journée après 14h.';
 
     public function getTargets()
     {
@@ -18,9 +18,8 @@ class Ticket extends Constraint
 
     public function validatedBy()
     {
-        return "validator.backend.ticketvalidator" ;
+        return  "validator.backend.hourvalidator";
     }
 
 
 }
-

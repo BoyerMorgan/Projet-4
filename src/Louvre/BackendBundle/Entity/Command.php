@@ -16,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\CommandRepository")
  * @ORM\HasLifecycleCallbacks()
  * @MyAssert\Ticket()
+ *
  */
 class Command
 {
@@ -54,7 +55,9 @@ class Command
      *     "today",
      *     message = "Il n'est pas possible de réserver un billet pour une date antérieure à celle du jour."
      * )
-     * @MyAssert\Checkday()
+     * @MyAssert\Checkdaysholidays()
+     * @MyAssert\Checksunday()
+     * @MyAssert\Checktuesday()
      */
     private $visitDate;
 
