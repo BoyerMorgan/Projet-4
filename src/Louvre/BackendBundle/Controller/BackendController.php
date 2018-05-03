@@ -69,9 +69,23 @@ class BackendController extends Controller
 
     public function confirmationAction(Request $request)
     {
+        if ($request->isMethod('POST'))
+        {
+            $order = $this->get('session')->get('order');
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($order);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('louvre_backend_email');
+        }
         return $this->render('LouvreBackendBundle:Backend:confirmation.html.twig',[
             'order' => $request->getSession()->get('order')
         ]);
+    }
+
+    public function emailAction(Request $request)
+    {
+        return $this->render('LouvreBackendBundle:Backend:email.html.twig');
     }
 
     public function contactAction()

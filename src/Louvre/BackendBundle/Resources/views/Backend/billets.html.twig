@@ -15,6 +15,7 @@
             {{ form_widget(form.tickets) }}
 
         {% endfor %}
+        J'ai lu et j'accepte <a href={{ path("louvre_backend_cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required>
         <input type="submit" class="btn btn-primary" value="Valider" />
         {{ form_end(form) }}
 

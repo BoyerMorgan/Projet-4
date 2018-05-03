@@ -50,9 +50,9 @@ class Tickets
     private $forename;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="birthDate", type="datetime")
+     * @ORM\Column(name="birthDate", type="string")
      * @Assert\LessThan(
      *     "today",
      *     message = "Merci de vérifier votre date de naissance"

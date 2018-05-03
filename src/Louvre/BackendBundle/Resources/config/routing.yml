@@ -15,9 +15,9 @@ louvre_backend_confirmation:
     path:    /commande/confirmation
     defaults: { _controller: LouvreBackendBundle:Backend:confirmation }
 
-louvre_backend_paiement:
-    path:    /commande/paiement
-    defaults: { _controller: LouvreBackendBundle:Backend:paiement }
+louvre_backend_email:
+    path:    /commande/PaiementValide
+    defaults: { _controller: LouvreBackendBundle:Backend:email }
 
 louvre_backend_contact:
     path: /contact

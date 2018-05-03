@@ -27,9 +27,20 @@ Confirmation avant paiement
         {% endfor %}
         <h3>Prix total de la commande : {{ order.price }} €</h3>
 
-        <form action="#">
-        J'ai lu et j'accepte <a href={{ path("louvre_backend_cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required>
-            <button class="btn btn-success btn-lg">Passer au paiement</button>
+        <form method="POST">
+
+                <script
+                        src="https://checkout.stripe.com/checkout.js"
+                        class="stripe-button"
+                        data-key="pk_test_YF3D8d1Tge7PIXpzs1vEJNUn"
+                        data-amount="{{ order.price * 100 }} "
+                        data-name="Payez votre réservation"
+                        data-description="Vous recevrez vos billets par email"
+                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                        data-locale="auto"
+                        data-currency="eur">
+                </script>
+                <button class="btn btn-primary">Payez par carte bancaire</button>
         </form>
         <p>
         <a class="btn btn-info" href= {{ path("louvre_backend_commande") }}> Retourner à la commande </a>
