@@ -1,0 +1,22 @@
+<h3>Confirmation de votre commande</h3>
+
+<p>Bonjour, votre commande a bien été enregistrée </p>
+
+Voici le récapitulatif de votre commande :
+Date de visite : {{ order.visitDate|date("d/m/Y") }}
+
+{% for ticket in order.tickets %}
+    <h3> Billet {{ loop.index }}</h3>
+    <ul>
+        <li>Nom : {{ ticket.name }}</li>
+        <li>Prénom : {{ ticket.forename }}</li>
+        <li>Date de naissance : {{ ticket.birthDate|date("d/m/Y") }}</li>
+        <li>Prix du billet : <strong>{{ ticket.price }}€</strong></li>
+
+    </ul>
+    {% if ticket.reduced %}
+        <em>Billet à tarif réduit - Veuillez vous munir du justificatif adéquat sous peine de vous voir refuser l'entrée au musée</em>
+    {% endif %}
+{% endfor %}
+
+<p>Les billets sont nominatifs, pensez à venir muni d'un justificatif d'identité</p>

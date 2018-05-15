@@ -55,9 +55,9 @@ class Command
      *     "today",
      *     message = "Il n'est pas possible de réserver un billet pour une date antérieure à celle du jour."
      * )
-     * @MyAssert\Checkdaysholidays()
-     * @MyAssert\Checksunday()
-     * @MyAssert\Checktuesday()
+     * @MyAssert\CheckDaysHolidays()
+     * @MyAssert\CheckSunday()
+     * @MyAssert\CheckTuesday()
      */
     private $visitDate;
 

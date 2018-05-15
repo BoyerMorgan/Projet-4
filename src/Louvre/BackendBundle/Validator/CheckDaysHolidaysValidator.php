@@ -6,7 +6,7 @@ namespace Louvre\BackendBundle\Validator;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Constraint;
 
-class CheckdaysholidaysValidator extends ConstraintValidator
+class CheckDaysHolidaysValidator extends ConstraintValidator
 {
 
     public function validate($date, Constraint $constraint)

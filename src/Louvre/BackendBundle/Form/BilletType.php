@@ -21,6 +21,9 @@ class BilletType extends AbstractType
             'allow_add' => true,
             'allow_delete' =>true,
             'label' => 'Billets',
+            'entry_options' => array(
+                'label' => false
+            )
         ));
     }
 

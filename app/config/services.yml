@@ -18,3 +18,12 @@ services:
 #        arguments:
 #            - '@doctrine.orm.entity_manager'
 
+    Louvre\BackendBundle\:
+        resource: '../../src/Louvre/BackendBundle/*'
+        exclude: '../../src/Louvre/BackendBundle/{Entity,Repository}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    Louvre\BackendBundle\Controller\:
+        resource: '../../src/Louvre/BackendBundle/Controller'
+        tags: ['controller.service_arguments']

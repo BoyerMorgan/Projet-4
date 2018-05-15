@@ -6,6 +6,9 @@ use Louvre\BackendBundle\Entity\Command;
 use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Form\BilletType;
 use Louvre\BackendBundle\Form\CommandType;
+use Louvre\BackendBundle\Manager\OrderManager;
+use Louvre\BackendBundle\PriceCalculator\LouvrePricecalculator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -13,30 +16,28 @@ use Symfony\Component\HttpFoundation\Request;
 
 class BackendController extends Controller
 {
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/", name="homepage")
+     */
     public function indexAction()
     {
         return $this->render('LouvreBackendBundle:Backend:index.html.twig');
     }
 
-    public function orderAction(Request $request)
+    public function orderAction(Request $request, OrderManager $orderManager)
     {
-        $session = $this->get('session');
+       $orderManager->init();
 
         $order = new Command();
-        $form = $this->get('form.factory')->create(CommandType::class, $order);
+        $form = $this->createForm(CommandType::class, $order);
         $form->handleRequest($request);
 
-        if ($request->isMethod('POST') && $form->isValid()) {
+        if($form->isSubmitted() && $form->isValid()){
 
-            //Création du nombre de Tickets demandé par l'utilisateur
-            for ($i = 1; $i <= $order->getNbTickets(); $i++) {
-                $ticket = new Tickets();
-                $order->addTicket($ticket);
-            }
-
-            $session->set(
-                'order', $order
-            );
+           $orderManager->CreateTickets($order);
+           $orderManager->setData($order);
 
             return $this->redirectToRoute('louvre_backend_billets');
         }
@@ -46,15 +47,14 @@ class BackendController extends Controller
         ));
     }
 
-    public function billetsAction (Request $request)
+    public function billetsAction (Request $request, LouvrePricecalculator $calculator, OrderManager $orderManager)
     {
-        $order = $this->get('session')->get('order');
+        $order = $orderManager->getOrder();
         $form = $this->get('form.factory')->create(BilletType::class, $order);
         $form->handleRequest($request);
 
-        if ($request->isMethod('POST') && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
-            $calculator = $this->container->get('louvre_backend.pricecalculator');
             $priceTotal = $calculator->commandPrice($order);
             $order->setPrice($priceTotal);
 
@@ -67,11 +67,11 @@ class BackendController extends Controller
         ));
     }
 
-    public function confirmationAction(Request $request)
+    public function confirmationAction(Request $request, OrderManager $orderManager)
     {
         if ($request->isMethod('POST'))
         {
-            $order = $this->get('session')->get('order');
+            $order = $orderManager->getOrder();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
@@ -83,9 +83,14 @@ class BackendController extends Controller
         ]);
     }
 
-    public function emailAction(Request $request)
+    public function emailAction(OrderManager $orderManager)
     {
-        return $this->render('LouvreBackendBundle:Backend:email.html.twig');
+        $mail = $orderManager->getOrderMail();
+        $order = $orderManager->getOrder();
+        $orderManager->SendMessage($mail, $order);
+
+        $this->addFlash('info', 'Votre commande a été prise en compte, un email de confirmation vous a été envoyé');
+        return $this->render('LouvreBackendBundle:Backend:index.html.twig');
     }
 
     public function contactAction()

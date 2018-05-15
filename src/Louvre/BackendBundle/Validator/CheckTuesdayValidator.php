@@ -6,11 +6,11 @@ namespace Louvre\BackendBundle\Validator;
 use Symfony\Component\Validator\ConstraintValidator;
 use Symfony\Component\Validator\Constraint;
 
-class ChecksundayValidator extends ConstraintValidator
+class CheckTuesdayValidator extends ConstraintValidator
 {
     public function validate($date, Constraint $constraint)
     {
-        if ($date->format('N') === "7") {
+        if ($date->format('N') === "2") {
             $this->context->addViolation($constraint->message);
         }
     }
