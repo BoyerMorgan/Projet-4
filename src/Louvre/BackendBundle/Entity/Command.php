@@ -101,8 +101,6 @@ class Command
         $this->commandDate = new \Datetime();
         $this->visitDate = new \Datetime();
         $this->tickets = new ArrayCollection();
-
-
     }
 
     /**

@@ -82,18 +82,19 @@ class BackendController extends Controller
             return $this->redirectToRoute('louvre_backend_email');
         }
         return $this->render('LouvreBackendBundle:Backend:confirmation.html.twig',[
-            'order' => $request->getSession()->get('order')
+            'order' => $orderManager->getOrder()
         ]);
     }
 
-    public function emailAction(OrderManager $orderManager)
+    public function emailAction(Request $request, OrderManager $orderManager)
     {
         $mail = $orderManager->getOrderMail();
         $order = $orderManager->getOrder();
         $orderManager->SendMessage($mail, $order);
 
-        $this->addFlash('info', 'Votre commande a été prise en compte, un email de confirmation vous a été envoyé');
-        return $this->render('LouvreBackendBundle:Backend:index.html.twig');
+        return $this->render('LouvreBackendBundle:Backend:email.html.twig',[
+            'order' => $orderManager->getOrder()
+        ]);
     }
 
     public function contactAction()

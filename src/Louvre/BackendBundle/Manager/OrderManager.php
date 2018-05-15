@@ -79,7 +79,7 @@ class OrderManager
         $this->mailer->send($message);
     }
 
-    function GenerateUniqueId($length = 20) {
+    function GenerateUniqueId() {
         $uniqueId = 0;
         srand((double) microtime(TRUE) * 1000000);
         //our array add all letters and numbers if you wish
@@ -89,7 +89,7 @@ class OrderManager
             '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
             'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
 
-        for ($rand = 0; $rand <= $length; $rand++) {
+        for ($rand = 0; $rand <= 20; $rand++) {
             $random = rand(0, count($chars) - 1);
             $uniqueId .= $chars[$random];
         }
