@@ -4,6 +4,7 @@
 
 Voici le récapitulatif de votre commande :
 Date de visite : {{ order.visitDate|date("d/m/Y") }}
+Numéro de réservation : {{ order.orderId }}
 
 {% for ticket in order.tickets %}
     <h3> Billet {{ loop.index }}</h3>

@@ -3,12 +3,13 @@
 namespace Louvre\BackendBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tickets
  *
  * @ORM\Table(name="tickets")
- * @ORM\Entity(repositoryClass="TicketsRepository")
+ * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\TicketsRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class Tickets
@@ -26,6 +27,12 @@ class Tickets
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=25)
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 50,
+     *     minMessage="Votre nom ne peut pas faire moins de {{ limit }} caractères.",
+     *     maxMessage="Votre nom ne peut pas faire plus de {{ limite }} caractères"
+     * )
      */
     private $name;
 
@@ -33,13 +40,23 @@ class Tickets
      * @var string
      *
      * @ORM\Column(name="forename", type="string", length=25)
+     * @Assert\Length(
+     *     min = 2,
+     *     max = 50,
+     *     minMessage="Votre nom ne peut pas faire moins de {{ limit }} caractères.",
+     *     maxMessage="Votre nom ne peut pas faire plus de {{ limite }} caractères"
+     * )
      */
     private $forename;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="birthDate", type="datetime")
+     * @ORM\Column(name="birthDate", type="string")
+     * @Assert\LessThan(
+     *     "today",
+     *     message = "Merci de vérifier votre date de naissance"
+     * )
      */
     private $birthDate;
 
@@ -61,15 +78,20 @@ class Tickets
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255)
+     * @Assert\Country
      */
     private $country;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Command")
+     * @ORM\ManyToOne(targetEntity="Command", inversedBy="tickets")
      * @ORM\JoinColumn(nullable=false)
      */
     private $order;
 
+    public function __construct(Command $order = null)
+    {
+        $this->order = $order;
+    }
 
 
     /**
@@ -225,5 +247,29 @@ class Tickets
     public function getForename()
     {
         return $this->forename;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     *
+     * @return Tickets
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer
+     */
+    public function getPrice()
+    {
+        return $this->price;
     }
 }

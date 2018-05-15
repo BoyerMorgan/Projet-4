@@ -89,6 +89,13 @@ class Command
      */
     private $tickets;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="orderId", type="string")
+     */
+    private $orderId;
+
     public function __construct()
     {
         $this->commandDate = new \Datetime();
@@ -286,5 +293,29 @@ class Command
     public function getNbTickets()
     {
         return $this->nbTickets;
+    }
+
+    /**
+     * Set orderId
+     *
+     * @param \mixed $orderId
+     *
+     * @return Command
+     */
+    public function setOrderId($orderId)
+    {
+        $this->orderId = $orderId;
+
+        return $this;
+    }
+
+    /**
+     * Get orderId
+     *
+     * @return \mixed
+     */
+    public function getOrderId()
+    {
+        return $this->orderId;
     }
 }

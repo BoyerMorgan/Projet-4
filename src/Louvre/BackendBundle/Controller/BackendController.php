@@ -47,7 +47,7 @@ class BackendController extends Controller
         ));
     }
 
-    public function billetsAction (Request $request, LouvrePricecalculator $calculator, OrderManager $orderManager)
+    public function billetsAction (Request $request, OrderManager $orderManager)
     {
         $order = $orderManager->getOrder();
         $form = $this->get('form.factory')->create(BilletType::class, $order);
@@ -55,7 +55,10 @@ class BackendController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $priceTotal = $calculator->commandPrice($order);
+            $priceTotal = $orderManager->commandPrice($order);
+            $uniqueId = $orderManager->GenerateUniqueId();
+
+            $order->SetOrderId($uniqueId);
             $order->setPrice($priceTotal);
 
             return $this->redirectToRoute('louvre_backend_confirmation');
