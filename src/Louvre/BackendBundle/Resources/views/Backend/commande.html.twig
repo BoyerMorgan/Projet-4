@@ -11,12 +11,44 @@ Billetterie
 {% block body %}
     <p>
         Cet espace est réservé à l'achat de billets. Pour toute commande supérieure à 10 billets, veuillez passer par le formulaire de contact.
+        <a class="btn btn-info btn-sm" href= {{ path('contact') }}>Contact</a>
     </p>
-    <p>
-    <a class="btn btn-primary btn-lg" href= {{ path('louvre_backend_contact') }}>
-        Contact
-    </a>
-    </p>
+    <h3>Tarifs du musée pour l'année 2018</h3>
+    <div class="well">
+        <div class="part">
+            <div class="row">
+                <div class="table-responsive-sm">
+                    <br/>
+                    <table class="table table-sm">
+                        <thead>
+                        <tr>
+                            <th scope="col">Enfant</th>
+                            <th scope="col">Normal</th>
+                            <th scope="col">Sénior</th>
+                            <th scope="col">Réduit</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td scope="row">8€</td>
+                            <td>16€</td>
+                            <td>12€</td>
+                            <td>10€</td>
+                        </tr>
+                        <tr>
+                            <td scope="row">De 4 ans à 12 ans <em><br/>L’entrée est gratuite pour les enfants de moins de 4 ans</em></td>
+                            <td>De 12 à 60 ans</td>
+                            <td>60 ans et plus</td>
+                            <td>Un justificatif sera demandé à toute personne ayant réservé un billet à tarif réduit. <br/><em>(étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…)</em></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 <h2>Informations concernant la commande :</h2>
 
@@ -38,11 +70,11 @@ Billetterie
 
     {{ form_row(form.nbTickets) }}
 
-    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    <input type="submit" class="btn btn-primary" value="Valider la commande" />
 
     {{ form_end(form) }}
 </div>
 
-    <a href={{ path("louvre_backend_homepage") }}>Retour sur la homepage</a><br />
+    <a href={{ path("index") }}>Retour sur la homepage</a><br />
 
 {% endblock %}

@@ -43,8 +43,7 @@ class CommandType extends AbstractType
                     '9' => 9,
                     '10' => 10
                 )
-            ))
-            ->add('save', SubmitType::class, array('label' => 'Valider la commande'));
+            ));
     }
     
     /**

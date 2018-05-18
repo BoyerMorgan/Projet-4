@@ -1,4 +1,3 @@
 louvre_backend:
-    resource: "@LouvreBackendBundle/Resources/config/routing.yml"
-    prefix:   /
-
+    resource: "@LouvreBackendBundle/Controller/BackendController.php"
+    type: annotation

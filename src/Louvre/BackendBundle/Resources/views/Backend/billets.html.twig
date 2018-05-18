@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block body %}
+    <h3>Informations concernant les billets</h3>
+    <div class="well">
+        <p>
+            <ul>
+                <li>Ceux-ci sont nominatifs, veuillez à bien renseigner les champs "Nom" et "Prénom".</li>
+                <li>Le tarif réduit ne s'applique que dans certaines conditions.</li>
+                <li><strong>L'entrée au musée pourra être refusé à quiconque ne présentant pas les documents requis.</strong></li>
+            </ul>
+        </p>
+    </div>
 <h2>Informations relatives à la commande</h2>
 
     <div class="well">
@@ -15,8 +25,12 @@
             {{ form_widget(form.tickets) }}
 
         {% endfor %}
-        J'ai lu et j'accepte <a href={{ path("louvre_backend_cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required>
-        <input type="submit" class="btn btn-primary" value="Valider" />
+        <div class="row">
+            <div class="row">
+            <div class="col-sm-6">J'ai lu et j'accepte les <a href={{ path("cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required></div>
+            <div class="col-sm-offset-4 col-sm-1"><input type="submit" class="btn btn-primary" value="Valider" /></div>
+            </div>
+        </div>
         {{ form_end(form) }}
 
 

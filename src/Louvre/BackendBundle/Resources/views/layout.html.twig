@@ -42,8 +42,20 @@
             box-sizing: border-box;
         }
 
-        .stripe-button {
-            display: none;
+        div.jumbotron {
+            background-color: peru;
+            margin-top: 10px;
+        }
+
+        div.well {
+        }
+
+        a:link {
+            font-style: italic;
+        }
+
+        .top-buffer {
+            margin-top:10px;
         }
 
 
@@ -57,7 +69,9 @@
 
 <div class="container">
     <div id="header" class="jumbotron">
-        <h1 align="center">Musée du Louvre</h1>
+        <div class="text-center">
+        <img class="mx-auto d-block" src="{{ asset('images/Louvre-LOGO.png') }}" alt="Responsive image">
+        </div>
         {% block header %}
 
         {% endblock %}

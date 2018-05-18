@@ -5,8 +5,8 @@ Confirmation avant paiement
 {% endblock %}
 
 {% block body %}
+    <h2>Récapitulatif de commande</h2>
     <div class="well">
-        <h2>Récapitulatif de commande</h2>
         <div class="recap">
            Mail de contact : {{ order.mail }}<br/>
            Date de la visite : {{ order.visitDate|date("d/m/Y") }}
@@ -25,6 +25,7 @@ Confirmation avant paiement
                 {% endif %}
 
         {% endfor %}
+
         <h3>Prix total de la commande : {{ order.price }} €</h3>
 
         <form method="POST">
@@ -40,13 +41,23 @@ Confirmation avant paiement
                         data-locale="auto"
                         data-currency="eur">
                 </script>
-                <button class="btn btn-primary">Payez par carte bancaire</button>
+
+            <button class="btn btn-success">Payez par carte bancaire</button>
         </form>
-        <p>
-        <a class="btn btn-info" href= {{ path("louvre_backend_commande") }}> Retourner à la commande </a>
-        </p>
-        <p>
-            <a class="btn btn-info" href= {{ path("louvre_backend_homepage") }}>Retourner à l'accueil</a>
-        </p>
+        <div class="row top-buffer">
+            <div class="col-lg-12">
+                <div class ="row">
+                    <div class="col-sm-2">
+                        <a class="btn btn-warning btn-sm" href= {{ path("commande") }}>Modifier ma commande</a>
+                    </div>
+                    <div class="col-sm-2 col-sm-push-1">
+                        <a class="btn btn-warning btn-sm" href=" {{ path("billets") }}">Modifier mes billets</a>
+                    </div>
+                    <div class="col-sm-2 col-sm-push-5">
+                        <a class="btn btn-warning btn-sm" href= {{ path("index") }}>Retourner à l'accueil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

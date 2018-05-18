@@ -10,7 +10,6 @@ namespace Louvre\BackendBundle\Manager;
 
 use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Entity\Command;
-use Symfony\Bundle\FrameworkBundle\Controller;
 
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -35,6 +34,7 @@ class OrderManager
     public function init()
     {
         return $this->session;
+
     }
 
     public function getOrder()
@@ -45,6 +45,11 @@ class OrderManager
     public function getOrderMail()
     {
         return $this->session->get('order')->getMail();
+    }
+
+    public function getOrderTickets()
+    {
+        return $this->session->get('order')->getTickets();
     }
 
     public function setData($data)
@@ -82,7 +87,6 @@ class OrderManager
     function GenerateUniqueId() {
         $uniqueId = 0;
         srand((double) microtime(TRUE) * 1000000);
-        //our array add all letters and numbers if you wish
         $chars = array(
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p',
             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5',

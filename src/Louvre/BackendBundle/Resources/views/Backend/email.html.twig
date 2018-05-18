@@ -11,9 +11,9 @@
 {% block body %}
     <div class="well">
         <h3>Commande numéro : {{ order.orderId }}</h3>
-        <p>Votre commande d'un montant de {{ order.price }}a bien été enregistrée. Un mail de confirmation contenant toutes les informations relatives à vos billets a été envoyé à l'adresse : <strong>{{ order.mail }}</strong></p>
+        <p>Votre commande d'un montant de <strong>{{ order.price }}€</strong> a bien été enregistrée. Un mail de confirmation contenant toutes les informations relatives à vos billets a été envoyé à l'adresse : <strong>{{ order.mail }}</strong></p>
         <p><em>Si cette adresse n'est pas la votre, si une erreur s'est glissée dans votre commande, veuillez vous munir de votre numéro de commande avant de nous contacter.</em></p>
     </div>
 
-    <a href={{ path("louvre_backend_homepage") }}>Retour à l'accueil</a><br />
+    <a href={{ path("index") }}>Retour à l'accueil</a><br />
 {% endblock %}
