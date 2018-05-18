@@ -21,7 +21,7 @@ class BackendController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('LouvreBackendBundle:Backend:index.html.twig');
+        return $this->render('default/index.html.twig');
     }
 
     /**
@@ -48,7 +48,7 @@ class BackendController extends Controller
             return $this->redirectToRoute('billets');
         }
 
-        return $this->render('LouvreBackendBundle:Backend:commande.html.twig', array(
+        return $this->render('default/commande.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -84,7 +84,7 @@ class BackendController extends Controller
                 return $this->redirectToRoute('confirmation');
             }
 
-        return $this->render('LouvreBackendBundle:Backend:billets.html.twig', array(
+        return $this->render('default/billets.html.twig', array(
             'form' => $form->createView(),
 
         ));
@@ -108,7 +108,7 @@ class BackendController extends Controller
 
             return $this->redirectToRoute('email');
         }
-        return $this->render('LouvreBackendBundle:Backend:confirmation.html.twig',[
+        return $this->render('default/confirmation.html.twig',[
             'order' => $orderManager->getOrder()
         ]);
     }
@@ -125,7 +125,7 @@ class BackendController extends Controller
         $order = $orderManager->getOrder();
         $orderManager->SendMessage($mail, $order);
 
-        return $this->render('LouvreBackendBundle:Backend:email.html.twig',[
+        return $this->render('default/email.html.twig',[
             'order' => $orderManager->getOrder()
         ]);
     }
@@ -137,7 +137,7 @@ class BackendController extends Controller
      */
     public function contactAction()
     {
-        return $this->render('LouvreBackendBundle:Backend:contact.html.twig');
+        return $this->render('default/contact.html.twig');
     }
 
     /**
@@ -147,6 +147,6 @@ class BackendController extends Controller
      */
     public function cgvAction()
     {
-        return $this->render('LouvreBackendBundle:Backend:cgv.html.twig');
+        return $this->render('default/cgv.html.twig');
     }
 }
