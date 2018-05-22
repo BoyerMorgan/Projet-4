@@ -16,6 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\CommandRepository")
  * @ORM\HasLifecycleCallbacks()
  * @MyAssert\Ticket()
+ * @MyAssert\Hour()
  *
  */
 class Command

@@ -2,9 +2,11 @@
 
 <p>Bonjour, votre commande a bien été enregistrée </p>
 
-Voici le récapitulatif de votre commande :
-Date de visite : {{ order.visitDate|date("d/m/Y") }}
-Numéro de réservation : {{ order.orderId }}
+<p>
+Voici le récapitulatif de votre commande :<br />
+Date de visite : <strong>{{ order.visitDate|date("d/m/Y") }}</strong> <br />
+Numéro de réservation : <strong>{{ order.orderId }}</strong>
+</p>
 
 {% for ticket in order.tickets %}
     <h3> Billet {{ loop.index }}</h3>

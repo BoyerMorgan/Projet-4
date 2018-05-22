@@ -33,8 +33,9 @@ Confirmation avant paiement
                 <script
                         src="https://checkout.stripe.com/checkout.js"
                         class="stripe-button"
-                        data-key="pk_test_YF3D8d1Tge7PIXpzs1vEJNUn"
-                        data-amount="{{ order.price * 100 }} "
+                        data-key= "{{ stripe_api }}"
+                        data-amount="{{ order.price * 100 }}"
+                        data-email=" {{ order.email }}"
                         data-name="Payez votre réservation"
                         data-description="Vous recevrez vos billets par email"
                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

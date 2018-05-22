@@ -10,9 +10,10 @@ namespace Louvre\BackendBundle\Manager;
 
 use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Entity\Command;
-
-
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface as Container;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class OrderManager
 {
@@ -22,18 +23,31 @@ class OrderManager
     private $session;
     private $mailer;
     private $templating;
+    private $requestStack;
+    private $container;
 
-    public function __construct(SessionInterface $session, \Swift_Mailer $mailer, \Twig_Environment $templating)
+    public function __construct(Container $container, RequestStack $requestStack, SessionInterface $session, \Swift_Mailer $mailer, \Twig_Environment $templating)
     {
         $this->session = $session;
         $this->mailer = $mailer;
         $this->templating = $templating;
+        $this->requestStack = $requestStack;
+        $this->container = $container;
     }
 
-
+    /**
+     * @return Command
+     */
     public function init()
     {
-        return $this->session;
+//        $command = $this->getOrder();
+//
+//        if (!$command) {
+//            $command = new Command();
+//            $this->setData($command);
+//
+//        }
+        return new Command();
 
     }
 
@@ -42,15 +56,15 @@ class OrderManager
         return $this->session->get('order');
     }
 
-    public function getOrderMail()
-    {
-        return $this->session->get('order')->getMail();
-    }
-
-    public function getOrderTickets()
-    {
-        return $this->session->get('order')->getTickets();
-    }
+//    public function getOrderMail()
+//    {
+//        return $this->session->get('order')->getMail();
+//    }
+//
+//    public function getOrderTickets()
+//    {
+//        return $this->session->get('order')->getTickets();
+//    }
 
     public function setData($data)
     {
@@ -59,15 +73,41 @@ class OrderManager
         );
     }
 
-    public function CreateTickets(Command $order)
+    public function createTickets(Command $order)
     {
+//        while ($order->getTickets()->count() != $order->getNbTickets()){
+//            if($order->getTickets()->count() > $order->getNbTickets()){
+//                $order->getTickets()->remove($order->getTickets()->last());
+//            };
+//            if($order->getTickets()->count() < $order->getNbTickets()){
+//                $ticket = new Tickets();
+//                $order->addTicket($ticket);
+//            }
+//        }
+
         for ($i = 1; $i <= $order->getNbTickets(); $i++) {
             $ticket = new Tickets();
             $order->addTicket($ticket);
         }
     }
 
-    public function SendMessage($mail, $order)
+    public function charge($price)
+    {
+        $request = $this->requestStack->getCurrentRequest();
+
+        $token = $request->request->get('stripeToken');
+
+        \Stripe\Stripe::setApiKey($this->container->getParameter('stripe_private_key'));
+        \Stripe\Charge::create(array(
+            "amount" => $price * 100 ,
+            "currency" => "eur",
+            "source" => $token,
+            "description" => "Premier essai"
+        ));
+    }
+
+
+    public function sendMessage($mail, $order)
     {
         $message = (new \Swift_Message('Confirmation de votre commande'))
             ->setFrom('louvre@example.com')
@@ -84,9 +124,10 @@ class OrderManager
         $this->mailer->send($message);
     }
 
-    function GenerateUniqueId() {
+    function GenerateUniqueId()
+    {
         $uniqueId = 0;
-        srand((double) microtime(TRUE) * 1000000);
+        srand((double)microtime(TRUE) * 1000000);
         $chars = array(
             'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p',
             'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5',
@@ -101,18 +142,16 @@ class OrderManager
     }
 
     /**
-     * @param object $command
-     *
+     * @param Command $command
      * @return int
      */
-    public function commandPrice(Command $command)
+    public function SetCommandPrice(Command $command)
     {
         $total = 0;
         $dateActual = $command->getVisitDate();
         $tickets = $command->getTickets();
 
-        foreach ($tickets as $ticket)
-        {
+        foreach ($tickets as $ticket) {
             $birthDate = date("Y-m-d", strtotime($ticket->getBirthDate()));
 
             $birthDay = new \DateTime($birthDate);
@@ -125,10 +164,13 @@ class OrderManager
             } elseif (intval($age) <= 4) {
                 $price = 0;
                 $total += 0;
-            } elseif ($ticket->getReduced()) {
+            } elseif ($ticket->getReduced() && intval($age) <= 4) {
+                $price = 0;
+                $total += 0;
+            } elseif ($ticket->getReduced() && intval($age) >= 12) {
                 $price = 10;
                 $total += 10;
-            } elseif(intval($age) >= 60) {
+            } elseif (intval($age) >= 60) {
                 $price = 12;
                 $total += 12;
             } else {
@@ -138,6 +180,8 @@ class OrderManager
             $ticket->setPrice($price);
 
         }
+
+        $command->setPrice($total);
 
         return $total;
 

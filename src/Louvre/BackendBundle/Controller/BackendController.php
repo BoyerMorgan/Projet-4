@@ -5,11 +5,11 @@ namespace Louvre\BackendBundle\Controller;
 use Louvre\BackendBundle\Entity\Command;
 use Louvre\BackendBundle\Form\BilletType;
 use Louvre\BackendBundle\Form\CommandType;
+use Louvre\BackendBundle\Manager\FormManager;
 use Louvre\BackendBundle\Manager\OrderManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 
 
 class BackendController extends Controller
@@ -31,19 +31,17 @@ class BackendController extends Controller
      *
      * @Route("/commande", name="commande")
      */
-    public function commandeAction(Request $request, OrderManager $orderManager)
+    public function commandeAction(Request $request, OrderManager $orderManager, FormManager $formManager)
     {
-       $orderManager->init();
+        $order = $orderManager->init();
 
+        $form = $this->get('form.factory')->create(CommandType::class, $order);
+        $form->handleRequest($request);
 
-           $order = new Command();
-           $form = $this->get('form.factory')->create(CommandType::class, $order);
-           $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
 
-        if($form->isSubmitted() && $form->isValid()){
-
-           $orderManager->CreateTickets($order);
-           $orderManager->setData($order);
+            $orderManager->createTickets($order);
+            $orderManager->setData($order);
 
             return $this->redirectToRoute('billets');
         }
@@ -60,29 +58,21 @@ class BackendController extends Controller
      *
      * @Route("/commande/billets", name="billets")
      */
-    public function billetsAction (Request $request, OrderManager $orderManager)
+    public function billetsAction(Request $request, OrderManager $orderManager)
     {
         $order = $orderManager->getOrder();
-        $tickets = $orderManager->getOrderTickets();
 
-        if (empty($ticket)) {
-            $form = $this->get('form.factory')->create(BilletType::class, $order);
-            $form->handleRequest($request);
+        $form = $this->get('form.factory')->create(BilletType::class, $order);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $orderManager->SetCommandPrice($order);
+            $uniqueId = $orderManager->GenerateUniqueId();
+
+            $order->SetOrderId($uniqueId);
+
+            return $this->redirectToRoute('confirmation');
         }
-        else {
-            $form = $this->get('form.factory')->create(BilletType::class, $tickets);
-        }
-
-            if ($form->isSubmitted() && $form->isValid()) {
-
-                $priceTotal = $orderManager->commandPrice($order);
-                $uniqueId = $orderManager->GenerateUniqueId();
-
-                $order->SetOrderId($uniqueId);
-                $order->setPrice($priceTotal);
-
-                return $this->redirectToRoute('confirmation');
-            }
 
         return $this->render('default/billets.html.twig', array(
             'form' => $form->createView(),
@@ -97,19 +87,23 @@ class BackendController extends Controller
      *
      * @Route("/commande/confirmation", name="confirmation")
      */
-    public function confirmationAction(Request $request, OrderManager $orderManager)
+    public function confirmationAction(Request $request, OrderManager $orderManager, FormManager $formManager)
     {
-        if ($request->isMethod('POST'))
-        {
+        if ($request->isMethod('POST')) {
+
             $order = $orderManager->getOrder();
+            $price = $orderManager->getOrder()->getPrice();
+
+            $orderManager->charge($price);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
 
             return $this->redirectToRoute('email');
         }
-        return $this->render('default/confirmation.html.twig',[
-            'order' => $orderManager->getOrder()
+        return $this->render('default/confirmation.html.twig', [
+            'order' => $orderManager->getOrder(),
         ]);
     }
 
@@ -121,11 +115,11 @@ class BackendController extends Controller
      */
     public function emailAction(OrderManager $orderManager)
     {
-        $mail = $orderManager->getOrderMail();
+        $mail = $orderManager->getOrder()->getMail();
         $order = $orderManager->getOrder();
-        $orderManager->SendMessage($mail, $order);
+        $orderManager->sendMessage($mail, $order);
 
-        return $this->render('default/email.html.twig',[
+        return $this->render('default/email.html.twig', [
             'order' => $orderManager->getOrder()
         ]);
     }

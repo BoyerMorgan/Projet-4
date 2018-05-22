@@ -3,16 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="ce9d3937-648b-4659-98ed-f26f8bd77c22" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/billets.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/cgv.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/commande.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/confirmation.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/contact.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/email.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/layout.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Repository/AvailabilityRepository.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,42 +34,29 @@
       <file leaf-file-name="BackendController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="149" column="38" selection-start-line="149" selection-start-column="38" selection-end-line="149" selection-end-column="38" />
+            <state relative-caret-position="422">
+              <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
               <folding>
                 <element signature="e#51#91#0#PHP" expanded="true" />
-                <element signature="e#627#652#1#PHP" expanded="true" />
-                <element signature="e#1433#1461#0#PHP" expanded="true" />
-                <element signature="e#2644#2671#0#PHP" expanded="true" />
-                <element signature="e#3436#3468#0#PHP" expanded="true" />
-                <element signature="e#3947#3972#0#PHP" expanded="true" />
-                <element signature="e#4237#4264#1#PHP" expanded="true" />
+                <element signature="e#672#697#1#PHP" expanded="true" />
+                <element signature="e#1476#1504#0#PHP" expanded="true" />
+                <element signature="e#2403#2430#0#PHP" expanded="true" />
+                <element signature="e#3262#3294#0#PHP" expanded="true" />
+                <element signature="e#3770#3795#0#PHP" expanded="true" />
+                <element signature="e#4061#4088#1#PHP" expanded="true" />
+                <element signature="e#4280#4303#1#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="config.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <file leaf-file-name="OrderManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/index.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="142">
+              <caret line="93" column="26" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="26" />
               <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
+                <element signature="e#137#177#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,23 +65,8 @@
       <file leaf-file-name="billets.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/billets.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cgv.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cgv.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
+            <state relative-caret-position="558">
+              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -100,44 +74,17 @@
       <file leaf-file-name="commande.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commande.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="-357">
               <caret column="12" selection-start-column="12" selection-end-column="12" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmation.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="confirmation.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contact.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/contact.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
-              <folding>
-                <element signature="e#12#28#0#Twig" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/email.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="392">
+              <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
               <folding>
                 <element signature="e#12#28#0#Twig" expanded="true" />
               </folding>
@@ -153,22 +100,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckdayValidator.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/DateValidator/LouvreDateValidator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/DateValidator/LouvreValidator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/TicketConstraint.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Repository/CommandRepository.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/HourValidator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/TicketValidator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/paiement.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/config/services.yml" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/config/services.yml" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Ticket.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Form/BilletType.php" />
-        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/app/config/config_dev.yml" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckdaysholidaysValidator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidaysValidator.php" />
@@ -182,10 +123,7 @@
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/ChecktuesdayValidator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesdayValidator.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Form/CommandType.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/index.html.twig" />
@@ -197,13 +135,22 @@
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/email.html.twig" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/cgv.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/commande.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/contact.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/email.html.twig" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/HourValidator.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/FormManager.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/parameters.yml" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/app/config/config.yml" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" />
       </list>
     </option>
   </component>
@@ -267,6 +214,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -278,6 +226,12 @@
               <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
               <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
@@ -369,6 +323,14 @@
             <path>
               <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
               <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Validator" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -377,11 +339,17 @@
               <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="stripe" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="stripe" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="stripe-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -389,7 +357,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -441,12 +409,15 @@
       <workItem from="1526381040429" duration="74000" />
       <workItem from="1526381129062" duration="4290000" />
       <workItem from="1526457510213" duration="6495000" />
-      <workItem from="1526639920710" duration="5644000" />
+      <workItem from="1526639920710" duration="7653000" />
+      <workItem from="1526724996362" duration="2584000" />
+      <workItem from="1526892518419" duration="5561000" />
+      <workItem from="1526992055621" duration="4390000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154700000" />
+    <option name="totallyTimeSpent" value="169244000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -459,6 +430,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297062" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -466,12 +438,12 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32317737" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3200443" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7850163" visible="true" weight="0.26666668" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.78013027" visible="true" weight="0.25555557" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32752994" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32668883" />
       <window_info id="Structure" order="1" sideWeight="0.5016077" side_tool="true" weight="0.12260128" />
-      <window_info id="Favorites" order="2" sideWeight="0.21498372" side_tool="true" visible="true" weight="0.26666668" />
+      <window_info id="Favorites" order="2" sideWeight="0.2198697" side_tool="true" visible="true" weight="0.25555557" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -484,19 +456,19 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17888889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32779622" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -535,40 +507,10 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Checkday.php" />
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckdayValidator.php" />
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="59" selection-start-line="17" selection-start-column="59" selection-end-line="17" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Ticket.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -582,13 +524,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -596,67 +531,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSundayValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesdayValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/config/services.yml" />
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="62" column="5" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/HourValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidays.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Repository/AvailabilityRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="34" selection-start-line="4" selection-start-column="34" selection-end-line="4" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Repository/CommandRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
@@ -674,50 +553,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidaysValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-48">
           <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
           <folding>
             <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/PriceCalculator/LouvrePricecalculator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/BilletType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#46#86#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -732,92 +573,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="549">
-          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="59" column="20" lean-forward="true" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
-          <caret line="57" column="26" selection-start-line="57" selection-start-column="26" selection-end-line="57" selection-end-column="26" />
-          <folding>
-            <element signature="e#137#177#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/confirmation.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding>
-            <element signature="e#12#49#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/contact.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/commande.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="77" column="4" selection-start-line="77" selection-start-column="4" selection-end-line="77" selection-end-column="64" />
-          <folding>
-            <element signature="e#12#49#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/cgv.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="198" column="64" selection-start-line="198" selection-start-column="64" selection-end-line="198" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/billets.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/email.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/index.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/config/routing.yml" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/layout.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/confirmation.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/contact.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/commande.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/cgv.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/billets.html.twig" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/email.html.twig" />
     <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -825,86 +589,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="149" column="38" selection-start-line="149" selection-start-column="38" selection-end-line="149" selection-end-column="38" />
-          <folding>
-            <element signature="e#51#91#0#PHP" expanded="true" />
-            <element signature="e#627#652#1#PHP" expanded="true" />
-            <element signature="e#1433#1461#0#PHP" expanded="true" />
-            <element signature="e#2644#2671#0#PHP" expanded="true" />
-            <element signature="e#3436#3468#0#PHP" expanded="true" />
-            <element signature="e#3947#3972#0#PHP" expanded="true" />
-            <element signature="e#4237#4264#1#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/billets.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cgv.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="12" selection-start-column="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commande.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/contact.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/email.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-          <folding>
-            <element signature="e#12#28#0#Twig" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -912,14 +614,216 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/email.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/HourValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesdayValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/SessionInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="114" column="20" selection-start-line="114" selection-start-column="20" selection-end-line="114" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="50" column="5" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerTrait.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="353" column="23" selection-start-line="353" selection-start-column="23" selection-end-line="353" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Repository/AvailabilityRepository.php" />
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Repository/CommandRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidaysValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSundayValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/contact.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/BilletType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="35" column="42" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <element signature="e#46#86#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/PriceCalculator/LouvrePricecalculator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31404">
+          <caret line="29" column="3" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/FormManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#137#178#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml.dist">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="98" column="49" selection-start-line="98" selection-start-column="49" selection-end-line="98" selection-end-column="49" />
+          <folding>
+            <element signature="e#51#91#0#PHP" expanded="true" />
+            <element signature="e#672#697#1#PHP" expanded="true" />
+            <element signature="e#1476#1504#0#PHP" expanded="true" />
+            <element signature="e#2403#2430#0#PHP" expanded="true" />
+            <element signature="e#3262#3294#0#PHP" expanded="true" />
+            <element signature="e#3770#3795#0#PHP" expanded="true" />
+            <element signature="e#4061#4088#1#PHP" expanded="true" />
+            <element signature="e#4280#4303#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="93" column="26" selection-start-line="93" selection-start-column="20" selection-end-line="93" selection-end-column="26" />
+          <folding>
+            <element signature="e#137#177#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/billets.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commande.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="42" column="44" lean-forward="true" selection-start-line="42" selection-start-column="44" selection-end-line="42" selection-end-column="44" />
           <folding>
             <element signature="e#12#28#0#Twig" expanded="true" />
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
