@@ -35,7 +35,7 @@ Confirmation avant paiement
                         class="stripe-button"
                         data-key= "{{ stripe_api }}"
                         data-amount="{{ order.price * 100 }}"
-                        data-email=" {{ order.email }}"
+                        data-email=" {{ order.mail }}"
                         data-name="Payez votre réservation"
                         data-description="Vous recevrez vos billets par email"
                         data-image="https://stripe.com/img/documentation/checkout/marketplace.png"

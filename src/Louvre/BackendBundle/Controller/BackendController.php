@@ -87,7 +87,7 @@ class BackendController extends Controller
      *
      * @Route("/commande/confirmation", name="confirmation")
      */
-    public function confirmationAction(Request $request, OrderManager $orderManager, FormManager $formManager)
+    public function confirmationAction(Request $request, OrderManager $orderManager)
     {
         if ($request->isMethod('POST')) {
 
@@ -95,10 +95,7 @@ class BackendController extends Controller
             $price = $orderManager->getOrder()->getPrice();
 
             $orderManager->charge($price);
-
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($order);
-            $entityManager->flush();
+            $orderManager->ValidateCommand($order);
 
             return $this->redirectToRoute('email');
         }

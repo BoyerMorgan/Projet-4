@@ -13,6 +13,7 @@ use Louvre\BackendBundle\Entity\Command;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class OrderManager
@@ -25,14 +26,16 @@ class OrderManager
     private $templating;
     private $requestStack;
     private $container;
+    private $em;
 
-    public function __construct(Container $container, RequestStack $requestStack, SessionInterface $session, \Swift_Mailer $mailer, \Twig_Environment $templating)
+    public function __construct(EntityManager $em, Container $container, RequestStack $requestStack, SessionInterface $session, \Swift_Mailer $mailer, \Twig_Environment $templating)
     {
         $this->session = $session;
         $this->mailer = $mailer;
         $this->templating = $templating;
         $this->requestStack = $requestStack;
         $this->container = $container;
+        $this->em = $em;
     }
 
     /**
@@ -102,8 +105,15 @@ class OrderManager
             "amount" => $price * 100 ,
             "currency" => "eur",
             "source" => $token,
-            "description" => "Premier essai"
+            "description" => "Paiement"
         ));
+    }
+
+    public function ValidateCommand($order)
+    {
+        $entityManager = $this->em;
+        $entityManager->persist($order);
+        $entityManager->flush();
     }
 
 
