@@ -69,7 +69,7 @@ class BackendController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $orderManager->SetCommandPrice($order);
+            $orderManager->ValidateOrder($order);
 
             return $this->redirectToRoute('recap');
         }
@@ -98,8 +98,7 @@ class BackendController extends Controller
             $order = $orderManager->getOrder();
             $price = $orderManager->getOrder()->getPrice();
 
-            $orderManager->validateOrder($price, $order);
-
+            $orderManager->paymentOrder($price, $order);
 
             return $this->redirectToRoute('confirmation');
         }
@@ -124,8 +123,7 @@ class BackendController extends Controller
         $price = $orderManager->getOrder()->getPrice();
         $orderId = $orderManager->getOrder()->getOrderId();
 
-        $orderManager->sendMessage($mail, $order);
-        $orderManager->clearSession();
+        $orderManager->ConfirmationOrder($order, $mail);
 
         return $this->render('default/confirmation.html.twig', [
             'mail' => $mail,

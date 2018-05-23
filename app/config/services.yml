@@ -13,11 +13,7 @@ services:
         autoconfigure: true
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
-        public: false
-#
-#    Louvre\BackendBundle\Validator\TicketValidator:
-#        arguments:
-#            - '@doctrine.orm.entity_manager'
+        public: true
 
     Louvre\BackendBundle\:
         resource: '../../src/Louvre/BackendBundle/*'
@@ -28,3 +24,12 @@ services:
     Louvre\BackendBundle\Controller\:
         resource: '../../src/Louvre/BackendBundle/Controller'
         tags: ['controller.service_arguments']
+
+    louvre_price.calculator:
+        class: Louvre\BackendBundle\Utils\LouvrePriceCalculator
+
+    louvre_id.generator:
+        class: Louvre\BackendBundle\Utils\LouvreIdGenerator
+
+    louvre_mail.sender:
+        class: Louvre\BackendBundle\Utils\LouvreMailSender

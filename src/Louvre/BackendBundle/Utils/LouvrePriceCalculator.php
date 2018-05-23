@@ -1,25 +1,21 @@
 <?php
 
-namespace Louvre\BackendBundle\PriceCalculator;
+namespace Louvre\BackendBundle\Utils;
 
 use Louvre\BackendBundle\Entity\Command;
-use Symfony\Component\HttpFoundation\RequestStack;
 
-class LouvrePricecalculator
+class LouvrePriceCalculator
 {
     /**
-     * @param object $command
-     *
-     * @return int
+     * @param object $order
      */
-    public function commandPrice(Command $command)
+    public function setCommandPrice(Command $order)
     {
         $total = 0;
-        $dateActual = $command->getVisitDate();
-        $tickets = $command->getTickets();
+        $dateActual = $order->getVisitDate();
+        $tickets = $order->getTickets();
 
-        foreach ($tickets as $ticket)
-        {
+        foreach ($tickets as $ticket) {
             $birthDate = date("Y-m-d", strtotime($ticket->getBirthDate()));
 
             $birthDay = new \DateTime($birthDate);
@@ -32,10 +28,13 @@ class LouvrePricecalculator
             } elseif (intval($age) <= 4) {
                 $price = 0;
                 $total += 0;
-            } elseif ($ticket->getReduced()) {
+            } elseif ($ticket->getReduced() && intval($age) <= 4) {
+                $price = 0;
+                $total += 0;
+            } elseif ($ticket->getReduced() && intval($age) >= 12) {
                 $price = 10;
                 $total += 10;
-            } elseif(intval($age) >= 60) {
+            } elseif (intval($age) >= 60) {
                 $price = 12;
                 $total += 12;
             } else {
@@ -45,8 +44,7 @@ class LouvrePricecalculator
             $ticket->setPrice($price);
 
         }
-
-        return $total;
+        $order->setPrice($total);
 
     }
 }
