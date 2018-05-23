@@ -59,20 +59,25 @@ class OrderManager
         return $this->session->get('order');
     }
 
-    public function setStatut(Command $order, $string)
+//    public function setStatut(Command $order, $string)
+//    {
+//        $order->setOrderStatut($string);
+//    }
+//
+//
+//    public function setData($data)
+//    {
+//        return $this->session->set(
+//            'order', $data
+//        );
+//    }
+
+    public function clearSession()
     {
-        $order->setOrderStatut($string);
+        $this->session->clear();
     }
 
-
-    public function setData($data)
-    {
-        return $this->session->set(
-            'order', $data
-        );
-    }
-
-    public function createTickets(Command $order)
+    public function initOrder(Command $order)
     {
 //        while ($order->getTickets()->count() != $order->getNbTickets()){
 //            if($order->getTickets()->count() > $order->getNbTickets()){
@@ -88,12 +93,19 @@ class OrderManager
             $ticket = new Tickets();
             $order->addTicket($ticket);
         }
+
+        $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
+
+        return $this->session->set(
+            'order', $order
+        );
+
     }
 
-    public function charge($price)
+    public function validateOrder($price, Command $order)
     {
         $request = $this->requestStack->getCurrentRequest();
-
+        $uniqueId = $this->GenerateUniqueId();
         $token = $request->request->get('stripeToken');
 
         \Stripe\Stripe::setApiKey($this->container->getParameter('stripe_private_key'));
@@ -103,11 +115,8 @@ class OrderManager
             "source" => $token,
             "description" => "Paiement"
         ));
-    }
 
-    public function validateCommand(Command $order)
-    {
-        $uniqueId = $this->GenerateUniqueId();
+        $order->setOrderStatut($order::PAIEMENT_VALIDE);
         $order->SetOrderId($uniqueId);
 
         $entityManager = $this->em;
@@ -115,10 +124,17 @@ class OrderManager
         $entityManager->flush();
     }
 
-    public function clearSession()
-    {
-        $this->session->clear();
-    }
+//    public function validateCommand(Command $order)
+//    {
+//        $uniqueId = $this->GenerateUniqueId();
+//        $order->SetOrderId($uniqueId);
+//
+//        $entityManager = $this->em;
+//        $entityManager->persist($order);
+//        $entityManager->flush();
+//    }
+
+
 
 
     public function sendMessage($mail, $order)
@@ -136,6 +152,8 @@ class OrderManager
             );
 
         $this->mailer->send($message);
+
+
     }
 
     function GenerateUniqueId()
@@ -156,14 +174,14 @@ class OrderManager
     }
 
     /**
-     * @param Command $command
+     * @param Command $order
      * @return int
      */
-    public function SetCommandPrice(Command $command)
+    public function SetCommandPrice(Command $order)
     {
         $total = 0;
-        $dateActual = $command->getVisitDate();
-        $tickets = $command->getTickets();
+        $dateActual = $order->getVisitDate();
+        $tickets = $order->getTickets();
 
         foreach ($tickets as $ticket) {
             $birthDate = date("Y-m-d", strtotime($ticket->getBirthDate()));
@@ -195,9 +213,10 @@ class OrderManager
 
         }
 
-        $command->setPrice($total);
+        $order->setPrice($total);
+        $order->setOrderStatut($order::COMMANDE_EN_ATTENTE_DE_PAIEMENT);
 
-        return $total;
+        //return $total;
 
     }
 }

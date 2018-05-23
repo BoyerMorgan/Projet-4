@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ce9d3937-648b-4659-98ed-f26f8bd77c22" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/recap.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/email.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" afterDir="false" />
@@ -24,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BackendController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BackendController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+            <state relative-caret-position="306">
+              <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
               <folding>
                 <element signature="e#3625#3650#0#PHP" expanded="true" />
                 <element signature="e#4536#4568#0#PHP" expanded="true" />
@@ -37,14 +35,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderManager.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OrderManager.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+            <state relative-caret-position="722">
+              <caret line="155" column="8" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="8" />
               <folding>
                 <element signature="e#137#177#0#PHP" expanded="true" />
-                <element signature="e#3414#3450#0#PHP" expanded="true" />
+                <element signature="e#3606#3642#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,8 +51,8 @@
       <file leaf-file-name="Command.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-155">
-              <caret line="314" column="21" selection-start-line="314" selection-start-column="21" selection-end-line="314" selection-end-column="21" />
+            <state relative-caret-position="245">
+              <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -128,8 +126,8 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" />
       </list>
     </option>
   </component>
@@ -201,116 +199,6 @@
               <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
               <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="default" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Manager" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="PriceCalculator" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="stripe" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="stripe" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="stripe-php" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -378,12 +266,12 @@
       <workItem from="1526724996362" duration="2584000" />
       <workItem from="1526892518419" duration="5561000" />
       <workItem from="1526992055621" duration="6520000" />
-      <workItem from="1527065121576" duration="4685000" />
+      <workItem from="1527065121576" duration="6737000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176059000" />
+    <option name="totallyTimeSpent" value="178111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -403,13 +291,13 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32317737" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3200443" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.77850163" visible="true" weight="0.32444444" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3200443" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.77851605" visible="true" weight="0.1411111" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32668883" />
       <window_info id="Structure" order="1" sideWeight="0.5016077" side_tool="true" weight="0.12260128" />
-      <window_info id="Favorites" order="2" sideWeight="0.22149837" side_tool="true" visible="true" weight="0.32444444" />
+      <window_info id="Favorites" order="2" sideWeight="0.22148395" side_tool="true" visible="true" weight="0.1411111" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -473,16 +361,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/TicketsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="41" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
-          <folding>
-            <element signature="e#46#86#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -764,31 +642,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155">
-          <caret line="314" column="21" selection-start-line="314" selection-start-column="21" selection-end-line="314" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
-          <folding>
-            <element signature="e#137#177#0#PHP" expanded="true" />
-            <element signature="e#3414#3450#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="245">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
+        <state relative-caret-position="306">
+          <caret line="100" column="57" selection-start-line="100" selection-start-column="57" selection-end-line="100" selection-end-column="57" />
           <folding>
             <element signature="e#3625#3650#0#PHP" expanded="true" />
             <element signature="e#4536#4568#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="155" column="8" selection-start-line="155" selection-start-column="8" selection-end-line="155" selection-end-column="8" />
+          <folding>
+            <element signature="e#137#177#0#PHP" expanded="true" />
+            <element signature="e#3606#3642#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

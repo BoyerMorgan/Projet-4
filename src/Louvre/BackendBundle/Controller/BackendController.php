@@ -40,9 +40,7 @@ class BackendController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $orderManager->createTickets($order);
-            $orderManager->setData($order);
-            $orderManager->setStatut($order, "Commande_en_attente");
+            $orderManager->initOrder($order);
 
             return $this->redirectToRoute('billets');
         }
@@ -72,7 +70,6 @@ class BackendController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $orderManager->SetCommandPrice($order);
-            $orderManager->setStatut($order, "Commande_en_attente_de_paiement");
 
             return $this->redirectToRoute('recap');
         }
@@ -101,9 +98,7 @@ class BackendController extends Controller
             $order = $orderManager->getOrder();
             $price = $orderManager->getOrder()->getPrice();
 
-            $orderManager->charge($price);
-            $orderManager->setStatut($order, 'Paiement_valide');
-            $orderManager->validateCommand($order);
+            $orderManager->validateOrder($price, $order);
 
 
             return $this->redirectToRoute('confirmation');
