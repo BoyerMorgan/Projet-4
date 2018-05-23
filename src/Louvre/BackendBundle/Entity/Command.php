@@ -97,6 +97,13 @@ class Command
      */
     private $orderId;
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="statut", type="string")
+     */
+    private $orderStatut;
+
     public function __construct()
     {
         $this->commandDate = new \Datetime();
@@ -316,5 +323,29 @@ class Command
     public function getOrderId()
     {
         return $this->orderId;
+    }
+
+    /**
+     * Set orderStatut
+     *
+     * @param string $orderStatut
+     *
+     * @return Command
+     */
+    public function setOrderStatut($orderStatut)
+    {
+        $this->orderStatut = $orderStatut;
+
+        return $this;
+    }
+
+    /**
+     * Get orderStatut
+     *
+     * @return string
+     */
+    public function getOrderStatut()
+    {
+        return $this->orderStatut;
     }
 }

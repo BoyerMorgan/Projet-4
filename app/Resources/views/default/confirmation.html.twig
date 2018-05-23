@@ -1,64 +1,19 @@
 {% extends "layout.html.twig" %}
 
 {% block title %}
-Confirmation avant paiement
+    Réservation confirmée
+{% endblock %}
+
+{% block header %}
+    <h2>Confirmation de votre commande</h2>
 {% endblock %}
 
 {% block body %}
-    <h2>Récapitulatif de commande</h2>
     <div class="well">
-        <div class="recap">
-           Mail de contact : {{ order.mail }}<br/>
-           Date de la visite : {{ order.visitDate|date("d/m/Y") }}
-        </div>
-        {% for ticket in order.tickets %}
-            <h3> Billet {{ loop.index }}</h3>
-            <ul>
-                <li>Nom : {{ ticket.name }}</li>
-                <li>Prénom : {{ ticket.forename }}</li>
-                <li>Date de naissance : {{ ticket.birthDate|date("d/m/Y") }}</li>
-                <li>Prix du billet : <strong>{{ ticket.price }}€</strong></li>
-
-            </ul>
-                {% if ticket.reduced %}
-                    <em>Billet à tarif réduit - Veuillez vous munir du justificatif adéquat sous peine de vous voir refuser l'entrée au musée</em>
-                {% endif %}
-
-        {% endfor %}
-
-        <h3>Prix total de la commande : {{ order.price }} €</h3>
-
-        <form method="POST">
-
-                <script
-                        src="https://checkout.stripe.com/checkout.js"
-                        class="stripe-button"
-                        data-key= "{{ stripe_api }}"
-                        data-amount="{{ order.price * 100 }}"
-                        data-email=" {{ order.mail }}"
-                        data-name="Payez votre réservation"
-                        data-description="Vous recevrez vos billets par email"
-                        data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                        data-locale="auto"
-                        data-currency="eur">
-                </script>
-
-            <button class="btn btn-success">Payez par carte bancaire</button>
-        </form>
-        <div class="row top-buffer">
-            <div class="col-lg-12">
-                <div class ="row">
-                    <div class="col-sm-2">
-                        <a class="btn btn-warning btn-sm" href= {{ path("commande") }}>Modifier ma commande</a>
-                    </div>
-                    <div class="col-sm-2 col-sm-push-1">
-                        <a class="btn btn-warning btn-sm" href=" {{ path("billets") }}">Modifier mes billets</a>
-                    </div>
-                    <div class="col-sm-2 col-sm-push-5">
-                        <a class="btn btn-warning btn-sm" href= {{ path("index") }}>Retourner à l'accueil</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <h3>Commande numéro : {{ orderId }}</h3>
+        <p>Votre commande d'un montant de <strong>{{ price }}€</strong> a bien été enregistrée. Un mail de confirmation contenant toutes les informations relatives à vos billets a été envoyé à l'adresse : <strong>{{ mail }}</strong></p>
+        <p><em>Si cette adresse n'est pas la votre, si une erreur s'est glissée dans votre commande, veuillez vous munir de votre numéro de commande avant de nous contacter.</em></p>
     </div>
+
+    <a href={{ path("index") }}>Retour à l'accueil</a><br />
 {% endblock %}

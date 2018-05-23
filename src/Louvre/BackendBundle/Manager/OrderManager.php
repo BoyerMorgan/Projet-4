@@ -59,15 +59,11 @@ class OrderManager
         return $this->session->get('order');
     }
 
-//    public function getOrderMail()
-//    {
-//        return $this->session->get('order')->getMail();
-//    }
-//
-//    public function getOrderTickets()
-//    {
-//        return $this->session->get('order')->getTickets();
-//    }
+    public function setStatut(Command $order, $string)
+    {
+        $order->setOrderStatut($string);
+    }
+
 
     public function setData($data)
     {
@@ -109,11 +105,19 @@ class OrderManager
         ));
     }
 
-    public function ValidateCommand($order)
+    public function validateCommand(Command $order)
     {
+        $uniqueId = $this->GenerateUniqueId();
+        $order->SetOrderId($uniqueId);
+
         $entityManager = $this->em;
         $entityManager->persist($order);
         $entityManager->flush();
+    }
+
+    public function clearSession()
+    {
+        $this->session->clear();
     }
 
 

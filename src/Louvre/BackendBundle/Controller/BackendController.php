@@ -31,7 +31,7 @@ class BackendController extends Controller
      *
      * @Route("/commande", name="commande")
      */
-    public function commandeAction(Request $request, OrderManager $orderManager, FormManager $formManager)
+    public function commandeAction(Request $request, OrderManager $orderManager)
     {
         $order = $orderManager->init();
 
@@ -42,6 +42,7 @@ class BackendController extends Controller
 
             $orderManager->createTickets($order);
             $orderManager->setData($order);
+            $orderManager->setStatut($order, "Commande_en_attente");
 
             return $this->redirectToRoute('billets');
         }
@@ -62,16 +63,18 @@ class BackendController extends Controller
     {
         $order = $orderManager->getOrder();
 
-        $form = $this->get('form.factory')->create(BilletType::class, $order);
-        $form->handleRequest($request);
+        if ($orderManager->getOrder()->getOrderStatut() === "Commande_en_attente") {
+            $form = $this->get('form.factory')->create(BilletType::class, $order);
+            $form->handleRequest($request);
+        }
+        else throw $this->createNotFoundException('La page demandée n\'est pas valide');
+
         if ($form->isSubmitted() && $form->isValid()) {
 
             $orderManager->SetCommandPrice($order);
-            $uniqueId = $orderManager->GenerateUniqueId();
+            $orderManager->setStatut($order, "Commande_en_attente_de_paiement");
 
-            $order->SetOrderId($uniqueId);
-
-            return $this->redirectToRoute('confirmation');
+            return $this->redirectToRoute('recap');
         }
 
         return $this->render('default/billets.html.twig', array(
@@ -85,21 +88,27 @@ class BackendController extends Controller
      * @param OrderManager $orderManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/commande/confirmation", name="confirmation")
+     * @Route("/commande/recap", name="recap")
      */
-    public function confirmationAction(Request $request, OrderManager $orderManager)
+    public function RecapAction(Request $request, OrderManager $orderManager)
     {
+        if ($orderManager->getOrder()->getOrderStatut() !== "Commande_en_attente_de_paiement") {
+            throw $this->createNotFoundException('La page demandée n\'est pas valide');
+        }
+
         if ($request->isMethod('POST')) {
 
             $order = $orderManager->getOrder();
             $price = $orderManager->getOrder()->getPrice();
 
             $orderManager->charge($price);
-            $orderManager->ValidateCommand($order);
+            $orderManager->setStatut($order, 'Paiement_valide');
+            $orderManager->validateCommand($order);
 
-            return $this->redirectToRoute('email');
+
+            return $this->redirectToRoute('confirmation');
         }
-        return $this->render('default/confirmation.html.twig', [
+        return $this->render('default/recap.html.twig', [
             'order' => $orderManager->getOrder(),
         ]);
     }
@@ -108,17 +117,29 @@ class BackendController extends Controller
      * @param OrderManager $orderManager
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route ("/commande/email", name="email")
+     * @Route ("/commande/confirmation", name="confirmation")
      */
-    public function emailAction(OrderManager $orderManager)
+    public function confirmationAction(OrderManager $orderManager)
     {
-        $mail = $orderManager->getOrder()->getMail();
+        if($orderManager->getOrder()->getOrderStatut() !== "Paiement_valide") {
+            throw $this->createNotFoundException('La page demandée n\'est pas valide');
+        }
         $order = $orderManager->getOrder();
-        $orderManager->sendMessage($mail, $order);
+        $mail = $orderManager->getOrder()->getMail();
+        $price = $orderManager->getOrder()->getPrice();
+        $orderId = $orderManager->getOrder()->getOrderId();
 
-        return $this->render('default/email.html.twig', [
-            'order' => $orderManager->getOrder()
+        $orderManager->sendMessage($mail, $order);
+        $orderManager->clearSession();
+
+        return $this->render('default/confirmation.html.twig', [
+            'mail' => $mail,
+            'price' => $price,
+            'orderId' => $orderId,
+
         ]);
+
+
     }
 
     /**
