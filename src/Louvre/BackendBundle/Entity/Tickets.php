@@ -131,7 +131,7 @@ class Tickets
     /**
      * Set birthDate
      *
-     * @param \DateTime $birthDate
+     * @param \string $birthDate
      *
      * @return Tickets
      */
@@ -145,7 +145,7 @@ class Tickets
     /**
      * Get birthDate
      *
-     * @return \DateTime
+     * @return \string
      */
     public function getBirthDate()
     {

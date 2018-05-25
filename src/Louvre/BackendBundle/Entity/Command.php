@@ -22,7 +22,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Command
 {
     const COMMANDE_EN_ATTENTE = "Commande_en_attente";
-    const COMMANDE_EN_ATTENTE_DE_PAIEMENT = "Commande_en_attente_de_paiement";
     const PAIEMENT_VALIDE = "Paiement_valide";
 
     /**
@@ -102,7 +101,7 @@ class Command
     private $orderId;
 
     /**
-     * @var float
+     * @var string
      *
      * @ORM\Column(name="statut", type="string")
      */

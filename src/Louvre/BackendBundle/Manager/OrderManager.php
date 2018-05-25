@@ -161,7 +161,7 @@ class OrderManager
     {
        $commandPrice = $this->container->get("louvre_price.calculator");
        $commandPrice->setCommandPrice($order);
-       $order->setOrderStatut($order::COMMANDE_EN_ATTENTE_DE_PAIEMENT);
+       $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
 
     }
 

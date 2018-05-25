@@ -4,6 +4,7 @@ parameters:
     #parameter_name: value
     stripe_api: pk_test_YF3D8d1Tge7PIXpzs1vEJNUn
 
+
 services:
     # default configuration for services in *this* file
     _defaults:

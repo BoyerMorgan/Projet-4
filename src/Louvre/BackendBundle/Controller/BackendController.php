@@ -80,16 +80,18 @@ class BackendController extends Controller
         ));
     }
 
+
     /**
      * @param Request $request
      * @param OrderManager $orderManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\OptimisticLockException
      *
      * @Route("/commande/recap", name="recap")
      */
     public function RecapAction(Request $request, OrderManager $orderManager)
     {
-        if ($orderManager->getOrder()->getOrderStatut() !== "Commande_en_attente_de_paiement") {
+        if ($orderManager->getOrder()->getOrderStatut() !== "Commande_en_attente") {
             throw $this->createNotFoundException('La page demandée n\'est pas valide');
         }
 

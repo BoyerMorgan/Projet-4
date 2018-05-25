@@ -8,6 +8,7 @@ class LouvrePriceCalculator
 {
     /**
      * @param object $order
+     * @return int
      */
     public function setCommandPrice(Command $order)
     {
@@ -31,6 +32,9 @@ class LouvrePriceCalculator
             } elseif ($ticket->getReduced() && intval($age) <= 4) {
                 $price = 0;
                 $total += 0;
+            } elseif ($ticket->getReduced() && intval($age) >= 4 && intval($age) <= 12) {
+                $price = 8;
+                $total += 8;
             } elseif ($ticket->getReduced() && intval($age) >= 12) {
                 $price = 10;
                 $total += 10;
@@ -45,6 +49,8 @@ class LouvrePriceCalculator
 
         }
         $order->setPrice($total);
+
+        return $total;
 
     }
 }
