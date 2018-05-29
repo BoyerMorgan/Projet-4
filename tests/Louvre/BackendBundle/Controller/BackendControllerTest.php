@@ -40,11 +40,11 @@ class BackendControllerTest extends WebTestCase
        $order = new Command();
         yield [200,'/homepage'];
         yield [200,'/commande'];
-        yield [404,'/commande/billets'];
+        yield [500,'/commande/billets'];
         yield [200,'/commande/billets', clone $order->setOrderStatut(Command::COMMANDE_EN_ATTENTE)];
-        yield [404,'/commande/recap'];
+        yield [500,'/commande/recap'];
         yield [200,'/commande/recap', clone $order->setOrderStatut(Command::COMMANDE_EN_ATTENTE)];
-        yield [404,'/commande/confirmation'];
+        yield [500,'/commande/confirmation'];
         yield [200,'/commande/confirmation', clone $order->setOrderStatut(Command::PAIEMENT_VALIDE)];
         yield [200,'/contact'];
         yield [200,'/cgv'];
