@@ -66,6 +66,13 @@
                 <a href={{ path("commande") }}>Accéder à la Billetterie</a>
 
                      </div>
+
+                <div>
+                    {# On affiche tous les messages flash dont le nom est « info » #}
+                    {% for message in app.session.flashbag.get('erreur') %}
+                        <p>Message flash : {{ message }}</p>
+                    {% endfor %}
+                </div>
                 </div>
 
         </section>

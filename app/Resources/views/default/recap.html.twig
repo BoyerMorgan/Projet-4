@@ -7,9 +7,15 @@ Confirmation avant paiement
 {% block body %}
     <h2>Récapitulatif de commande</h2>
     <div class="well">
+        <div>
+            {# On affiche tous les messages flash dont le nom est « info » #}
+            {% for message in app.session.flashbag.get('erreur') %}
+                <p>Message flash : {{ message }}</p>
+            {% endfor %}
+        </div>
         <div class="recap">
-           Mail de contact : {{ order.mail }}<br/>
-           Date de la visite : {{ order.visitDate|date("d/m/Y") }}
+            <strong>Mail de contact</strong> : {{ order.mail }}<br/>
+            <strong>Date de la visite</strong> : {{ order.visitDate|date("d/m/Y") }}
         </div>
         {% for ticket in order.tickets %}
             <h3> Billet {{ loop.index }}</h3>
@@ -42,6 +48,9 @@ Confirmation avant paiement
                         data-locale="auto"
                         data-currency="eur">
                 </script>
+            <script>
+                document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+            </script>
 
             <button class="btn btn-success">Payez par carte bancaire</button>
         </form>

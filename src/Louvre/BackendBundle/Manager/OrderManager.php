@@ -10,10 +10,15 @@ namespace Louvre\BackendBundle\Manager;
 
 use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Entity\Command;
+use Louvre\BackendBundle\Utils\LouvreIdGenerator;
+use Louvre\BackendBundle\Utils\LouvreMailSender;
+use Louvre\BackendBundle\Utils\LouvrePriceCalculator;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Routing\RouterInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
 
 class OrderManager
 {
@@ -22,20 +27,61 @@ class OrderManager
      */
     private $session;
     private $requestStack;
-    private $container;
     private $em;
+    /**
+     * @var LouvreMailSender
+     */
+    private $louvreMailSender;
+    private $stripePrivateKey;
+    /**
+     * @var LouvrePriceCalculator
+     */
+    private $louvrePriceCalculator;
+    /**
+     * @var LouvreIdGenerator
+     */
+    private $louvreIdGenerator;
+    /**
+     * @var RouterInterface
+     */
+    private $router;
 
-    public function __construct(EntityManager $em, Container $container, RequestStack $requestStack, SessionInterface $session)
+
+
+    public function __construct(EntityManager $em,
+                                LouvreMailSender $louvreMailSender,
+                                RequestStack $requestStack,
+                                SessionInterface $session,
+                                $stripePrivateKey,
+                                LouvrePriceCalculator $louvrePriceCalculator,
+                                LouvreIdGenerator $louvreIdGenerator,
+                                RouterInterface $router)
     {
         $this->session = $session;
         $this->requestStack = $requestStack;
-        $this->container = $container;
         $this->em = $em;
+        $this->louvreMailSender = $louvreMailSender;
+        $this->stripePrivateKey = $stripePrivateKey;
+        $this->louvrePriceCalculator = $louvrePriceCalculator;
+        $this->louvreIdGenerator = $louvreIdGenerator;
+        $this->router = $router;
+
     }
 
-    public function getOrder()
+    public function getOrder($expectedStatus = null)
     {
-        return $this->session->get('order');
+        /** @var Command $order */
+        $order = $this->session->get('order');
+
+        if (!$order) {
+            throw new AccessDeniedException('Vous n\'avez pas accès à cette page' );
+        }
+        if ($expectedStatus && $order->getOrderStatut() !== $expectedStatus) {
+            throw new AccessDeniedException('Vous n\'avez pas accès à cette page' );
+        }
+
+        return $order;
+
     }
 
     /**
@@ -53,15 +99,6 @@ class OrderManager
      */
     public function initOrder(Command $order)
     {
-//        while ($order->getTickets()->count() != $order->getNbTickets()){
-//            if($order->getTickets()->count() > $order->getNbTickets()){
-//                $order->getTickets()->remove($order->getTickets()->last());
-//            };
-//            if($order->getTickets()->count() < $order->getNbTickets()){
-//                $ticket = new Tickets();
-//                $order->addTicket($ticket);
-//            }
-//        }
 
         for ($i = 1; $i <= $order->getNbTickets(); $i++) {
             $ticket = new Tickets();
@@ -76,104 +113,76 @@ class OrderManager
 
     }
 
+
     /**
-     * @param $price
      * @param Command $order
+     * @return bool
      * @throws \Doctrine\ORM\OptimisticLockException
      */
-    public function paymentOrder($price, Command $order)
+    public function paymentOrder(Command $order)
     {
         $request = $this->requestStack->getCurrentRequest();
-
-        $generator = $this->container->get("louvre_id.generator");
-        $uniqueId = $generator->generateUniqueId();
+        $uniqueId = $this->louvreIdGenerator->generateUniqueId();
 
         $token = $request->request->get('stripeToken');
 
-        \Stripe\Stripe::setApiKey($this->container->getParameter('stripe_private_key'));
+        $price = $this->session->get('order')->getPrice();
+        $mail = $this->session->get('order')->getMail();
+
+
+        try {
+        \Stripe\Stripe::setApiKey($this->stripePrivateKey);
         \Stripe\Charge::create(array(
-            "amount" => $price * 100 ,
-            "currency" => "eur",
-            "source" => $token,
-            "description" => "Paiement"
-        ));
+                "amount" => $price * 100,
+                "currency" => "eur",
+                "source" => $token,
+                "description" => "Paiement"
+            ));
+        } catch (\Stripe\Error\ApiConnection $e) {
+            $error = "Erreur de communication avec les serveurs de Stripe, veuillez rééssayer dans un instant";
+            $this->session->getFlashBag()->add('erreur', $error);
+            return false;
+        } catch (\Stripe\Error\InvalidRequest $e) {
+            $error = "Une erreur interne a été déclarée, celle-ci sera corrigée dans les plus brefs délais, veuillez nous excuser pour la gène occasionnée";
+            $this->session->getFlashBag()->add('erreur', $error);
+            return false;
+        } catch (\Stripe\Error\Api $e) {
+            $error = "Les serveurs de Stripe ne répondent pas, veuillez rééssayer dans un instant";
+            $this->session->getFlashBag()->add('erreur', $error);
+            return false;
+        } catch (\Stripe\Error\Card $e) {
+            $e_json = $e->getJsonBody();
+            $error = $e_json['error'];
+            $this->session->getFlashBag()->add('erreur', $error);
+            return false;
+        }
 
         $order->setOrderStatut($order::PAIEMENT_VALIDE);
         $order->SetOrderId($uniqueId);
+
+        $this->louvreMailSender->sendMessage($mail, $order);
 
         $entityManager = $this->em;
         $entityManager->persist($order);
         $entityManager->flush();
     }
 
-//    public function validateCommand(Command $order)
-//    {
-//        $uniqueId = $this->GenerateUniqueId();
-//        $order->SetOrderId($uniqueId);
-//
-//        $entityManager = $this->em;
-//        $entityManager->persist($order);
-//        $entityManager->flush();
-//    }
-
-
-//
-//
-//    public function sendMessage($mail, $order)
-//    {
-//        $message = (new \Swift_Message('Confirmation de votre commande'))
-//            ->setFrom('louvre@example.com')
-//            ->setTo($mail)
-//            ->setBody(
-//                $this->templating->render(
-//                    'Emails/emailconfirmation.html.twig', [
-//                        'order' => $order
-//                    ]
-//                ),
-//                'text/html'
-//            );
-//
-//        $this->mailer->send($message);
-//
-//    }
-
-//    function generateUniqueId()
-//    {
-//        $uniqueId = 0;
-//        srand((double)microtime(TRUE) * 1000000);
-//        $chars = array(
-//            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'p',
-//            'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5',
-//            '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K',
-//            'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
-//
-//        for ($rand = 0; $rand <= 20; $rand++) {
-//            $random = rand(0, count($chars) - 1);
-//            $uniqueId .= $chars[$random];
-//        }
-//        return $uniqueId;
-//    }
-
     /**
      * @param Command $order
      */
-    public function ValidateOrder(Command $order)
+    public function validateOrder(Command $order)
     {
-       $commandPrice = $this->container->get("louvre_price.calculator");
-       $commandPrice->setCommandPrice($order);
-       $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
+        $this->louvrePriceCalculator->setCommandPrice($order);
+        $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
 
     }
 
-    /**
-     * @param Command $order
-     * @param $mail
-     */
-    public function ConfirmationOrder(Command $order, $mail)
-    {
-        $message = $this->container->get("louvre_mail.sender");
-        $message->sendMessage($mail, $order);
 
+    /**
+     *
+     */
+    public function confirmationOrder()
+    {
         $this->session->clear();
     }
 }

@@ -3,6 +3,7 @@
 namespace Louvre\BackendBundle\Form;
 
 
+use Louvre\BackendBundle\Entity\Tickets;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -45,7 +46,7 @@ class TicketsType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Louvre\BackendBundle\Entity\Tickets'
+            'data_class' => Tickets::class
         ));
     }
 

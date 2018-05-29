@@ -5,7 +5,7 @@ namespace Louvre\BackendBundle\Controller;
 use Louvre\BackendBundle\Entity\Command;
 use Louvre\BackendBundle\Form\BilletType;
 use Louvre\BackendBundle\Form\CommandType;
-use Louvre\BackendBundle\Manager\FormManager;
+//use Louvre\BackendBundle\Manager\FormManager;
 use Louvre\BackendBundle\Manager\OrderManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -35,7 +35,7 @@ class BackendController extends Controller
     {
         $order = $orderManager->init();
 
-        $form = $this->get('form.factory')->create(CommandType::class, $order);
+        $form = $this->createForm(CommandType::class, $order);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,17 +59,14 @@ class BackendController extends Controller
      */
     public function billetsAction(Request $request, OrderManager $orderManager)
     {
-        $order = $orderManager->getOrder();
+        $order = $orderManager->getOrder(Command::COMMANDE_EN_ATTENTE);
 
-        if ($orderManager->getOrder()->getOrderStatut() === "Commande_en_attente") {
-            $form = $this->get('form.factory')->create(BilletType::class, $order);
-            $form->handleRequest($request);
-        }
-        else throw $this->createNotFoundException('La page demandée n\'est pas valide');
+        $form = $this->createForm(BilletType::class, $order);
+        $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $orderManager->ValidateOrder($order);
+            $orderManager->validateOrder($order);
 
             return $this->redirectToRoute('recap');
         }
@@ -89,23 +86,18 @@ class BackendController extends Controller
      *
      * @Route("/commande/recap", name="recap")
      */
-    public function RecapAction(Request $request, OrderManager $orderManager)
+    public function recapAction(Request $request, OrderManager $orderManager)
     {
-        if ($orderManager->getOrder()->getOrderStatut() !== "Commande_en_attente") {
-            throw $this->createNotFoundException('La page demandée n\'est pas valide');
-        }
+        $order = $orderManager->getOrder(Command::COMMANDE_EN_ATTENTE);
 
         if ($request->isMethod('POST')) {
 
-            $order = $orderManager->getOrder();
-            $price = $orderManager->getOrder()->getPrice();
-
-            $orderManager->paymentOrder($price, $order);
+            $orderManager->paymentOrder($order);
 
             return $this->redirectToRoute('confirmation');
         }
         return $this->render('default/recap.html.twig', [
-            'order' => $orderManager->getOrder(),
+            'order' => $order,
         ]);
     }
 
@@ -117,21 +109,13 @@ class BackendController extends Controller
      */
     public function confirmationAction(OrderManager $orderManager)
     {
-        if($orderManager->getOrder()->getOrderStatut() !== "Paiement_valide") {
-            throw $this->createNotFoundException('La page demandée n\'est pas valide');
-        }
-        $order = $orderManager->getOrder();
-        $mail = $orderManager->getOrder()->getMail();
-        $price = $orderManager->getOrder()->getPrice();
-        $orderId = $orderManager->getOrder()->getOrderId();
 
-        $orderManager->ConfirmationOrder($order, $mail);
+        $order = $orderManager->getOrder(Command::PAIEMENT_VALIDE);
+
+        $orderManager->confirmationOrder();
 
         return $this->render('default/confirmation.html.twig', [
-            'mail' => $mail,
-            'price' => $price,
-            'orderId' => $orderId,
-
+         'order' => $order
         ]);
 
 
