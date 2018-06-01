@@ -5,10 +5,9 @@
 {% endblock %}
 
 {% block body %}
-
-    <div class="row">
+<br/>
         <div class ="responsive">
-            <div class="col-sm-3">
+            <div class="col-sm-4 pull-left">
 
             <div class="gallery">
                 <a target="_blank" href="https://www.louvre.fr/sites/default/files/imagecache/940x500/medias/medias_images/images/louvre-carrousel-eugene-delacroix-le-28-juillet-1830-la-liberte-guidant-le-peuple-detail.jpg?1519988083">
@@ -40,11 +39,9 @@
             </div>
 
             </div>
-        </div>
 
 
-
-        <section class="col-sm-9">
+        <section class="col-sm-8">
                 <p>
                 Le musée du Louvre, inauguré en 1793 sous l'appellation Muséum central des arts de la République dans le palais du Louvre, ancienne résidence royale située au centre de Paris, est aujourd'hui le plus grand musée d'art et d'antiquités au monde. Sa surface d'exposition est de 72 735 m26.
 
@@ -60,24 +57,15 @@
                 </p>
                 <br />
 
-            <div class="row">
-                     <div class="col-sm-5">
-
-                <a href={{ path("commande") }}>Accéder à la Billetterie</a>
-
-                     </div>
-
                 <div>
                     {# On affiche tous les messages flash dont le nom est « info » #}
                     {% for message in app.session.flashbag.get('erreur') %}
                         <p>Message flash : {{ message }}</p>
                     {% endfor %}
                 </div>
-                </div>
-
         </section>
-    </div>
 
+    </div>
 {% endblock %}
 
 

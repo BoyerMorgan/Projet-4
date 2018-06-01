@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h3 align="center">Informations concernant les billets</h3>
+    <h2 align="center"><span class="glyphicon glyphicon-info-sign" style="font-size:25px; color:#33b5e5"></span> Informations concernant les billets</h2>
     <div class="well">
         <p>
             <ul>
@@ -15,25 +15,21 @@
             </ul>
         </p>
     </div>
-<h2>Informations relatives à la commande</h2>
+<h3><span class="glyphicon glyphicon-tasks" style="font-size:25px; color:#33b5e5"></span> Informations relatives à la commande</h3>
 
     <div class="well">
         {{ form_start(form) }}
 
         {% for ticket in form.tickets %}
-            <h3 style="color: peru"> Billet {{ loop.index }}</h3>
+            <h3><span class="glyphicon glyphicon-user" style="font-size:25px; color:#33b5e5"></span> Billet {{ loop.index }}</h3>
             {{ form_row(ticket) }}
 
         {% endfor %}
-        <div class="row">
-            <div class="row">
-            <div class="col-sm-6">J'ai lu et j'accepte les <a href={{ path("cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required></div>
-            <div class="col-sm-offset-4 col-sm-1"><input type="submit" class="btn btn-primary" value="Valider" /></div>
+            <div class="row" style="margin-right:-3px;margin-left:-3px">
+                <div class="pull-left">J'ai lu et j'accepte les <a href={{ path("cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required></div>
+                <div class="pull-right"><input type="submit" class="btn btn-info" value="Valider" /></div>
             </div>
-        </div>
         {{ form_end(form) }}
-
-
 
     </div>
 

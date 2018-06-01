@@ -16,7 +16,6 @@ use Louvre\BackendBundle\Utils\LouvrePriceCalculator;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
@@ -41,10 +40,7 @@ class OrderManager
      * @var LouvreIdGenerator
      */
     private $louvreIdGenerator;
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+
 
 
 
@@ -54,8 +50,7 @@ class OrderManager
                                 SessionInterface $session,
                                 $stripePrivateKey,
                                 LouvrePriceCalculator $louvrePriceCalculator,
-                                LouvreIdGenerator $louvreIdGenerator,
-                                RouterInterface $router)
+                                LouvreIdGenerator $louvreIdGenerator)
     {
         $this->session = $session;
         $this->requestStack = $requestStack;
@@ -64,7 +59,6 @@ class OrderManager
         $this->stripePrivateKey = $stripePrivateKey;
         $this->louvrePriceCalculator = $louvrePriceCalculator;
         $this->louvreIdGenerator = $louvreIdGenerator;
-        $this->router = $router;
 
     }
 

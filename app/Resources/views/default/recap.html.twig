@@ -5,7 +5,7 @@ Confirmation avant paiement
 {% endblock %}
 
 {% block body %}
-    <h2>Récapitulatif de commande</h2>
+    <h2 style="text-align: center">Récapitulatif de commande</h2>
     <div class="well">
         <div>
             {# On affiche tous les messages flash dont le nom est « info » #}
@@ -18,7 +18,7 @@ Confirmation avant paiement
             <strong>Date de la visite</strong> : {{ order.visitDate|date("d/m/Y") }}
         </div>
         {% for ticket in order.tickets %}
-            <h3> Billet {{ loop.index }}</h3>
+            <h3><span class="glyphicon glyphicon-user" style="font-size:25px; color:#33b5e5"></span> Billet {{ loop.index }}</h3>
             <ul>
                 <li>Nom : {{ ticket.name }}</li>
                 <li>Prénom : {{ ticket.forename }}</li>
@@ -51,23 +51,14 @@ Confirmation avant paiement
             <script>
                 document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
             </script>
-
-            <button class="btn btn-success">Payez par carte bancaire</button>
-        </form>
-        <div class="row top-buffer">
-            <div class="col-lg-12">
-                <div class ="row">
-                    <div class="col-sm-2">
-                        <a class="btn btn-warning btn-sm" href= {{ path("commande") }}>Modifier ma commande</a>
-                    </div>
-                    <div class="col-sm-2 col-sm-push-1">
-                        <a class="btn btn-warning btn-sm" href=" {{ path("billets") }}">Modifier mes billets</a>
-                    </div>
-                    <div class="col-sm-2 col-sm-push-5">
-                        <a class="btn btn-warning btn-sm" href= {{ path("index") }}>Retourner à l'accueil</a>
-                    </div>
+            <div class="row" style="margin-right:-3px;margin-left:-3px">
+            <button class="btn btn-info btn-md"><span class="glyphicon glyphicon-shopping-cart"></span> Payez par carte bancaire</button>
+                <div class="btn-group pull-right">
+                <a class="btn btn-info btn-md" href= {{ path("commande") }}>Modifier ma commande</a>
+                <a class="btn btn-info btn-md" href=" {{ path("billets") }}">Modifier mes billets</a>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+
 {% endblock %}

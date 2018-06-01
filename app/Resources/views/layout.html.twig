@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>{% block title %}Bienvenue sur le site du musée du Louvre{% endblock %}</title>
+    {% block stylesheets %}
+        {# CSS BOOTSTRAP #}
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    {% endblock %}
     <style type="text/css">
-        h2
-        {
-            text-align: center ;
-        }
 
         p
         {
@@ -43,35 +43,48 @@
         }
 
         div.jumbotron {
-            background-color: peru;
+            background-color: #3F729B;
             margin-top: 10px;
-        }
-
-        div.well {
-        }
-
-        a:link {
-            font-style: italic;
+            margin-bottom: -6px;
         }
 
         .top-buffer {
             margin-top:10px;
         }
 
+        div.float-left {
+            margin-left: -50px;
+            margin-top: -20px;
+        }
+
+        .img-fluid {
+            max-width: 50%;
+        }
+
+        .row-top {
+            padding-bottom: 10px;
+        }
+
+
+
 
     </style>
 
-    {% block stylesheets %}
-        {# CSS BOOTSTRAP #}
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-    {% endblock %}
-
 <div class="container">
     <div id="header" class="jumbotron">
-        <div class="text-center">
-        <img class="mx-auto d-block" src="{{ asset('images/Louvre-LOGO.png') }}" alt="Responsive image">
+        <div class="float-left">
+        <img src="{{ asset('images/Louvre-LOGO.png') }}" class="img-fluid" alt="Responsive image">
         </div>
+        <hr>
+        <div class="row-top">
+            <a class="btn btn-info btn-md head pull-left" style="font-weight: bold" href={{ path("index") }}>Accueil</a>
+                <div class="btn-group pull-right">
+            <a class="btn btn-info btn-md head" style="font-weight: bold" href={{ path("commande") }}>Billetterie</a>
+            <a class="btn btn-info btn-md head" style="font-weight: bold" href={{ path("contact") }}>Contact</a>
+                </div>
+        </div>
+    </div>
+</div>
         {% block header %}
 
         {% endblock %}

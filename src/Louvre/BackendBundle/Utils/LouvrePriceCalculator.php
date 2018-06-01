@@ -6,8 +6,9 @@ use Louvre\BackendBundle\Entity\Command;
 
 class LouvrePriceCalculator
 {
+
     /**
-     * @param object $order
+     * @param Command $order
      * @return int
      */
     public function setCommandPrice(Command $order)
