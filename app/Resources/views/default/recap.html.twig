@@ -8,9 +8,8 @@ Confirmation avant paiement
     <h2 style="text-align: center">Récapitulatif de commande</h2>
     <div class="well">
         <div>
-            {# On affiche tous les messages flash dont le nom est « info » #}
             {% for message in app.session.flashbag.get('erreur') %}
-                <p>Message flash : {{ message }}</p>
+                <p><strong>Erreur : {{ message }}</strong></p>
             {% endfor %}
         </div>
         <div class="recap">

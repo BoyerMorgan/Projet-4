@@ -15,13 +15,16 @@ class LouvreMailSender
 
     public function sendMessage($mail, $order)
     {
-        $message = (new \Swift_Message('Confirmation de votre commande'))
+        $message = (new \Swift_Message('Confirmation de votre commande'));
+        $image['logo'] = $message->embed(\Swift_Image::fromPath('images/Louvre-LOGO.png'));
+        $message
             ->setFrom('louvre@example.com')
             ->setTo($mail)
             ->setBody(
                 $this->templating->render(
                     'Emails/emailconfirmation.html.twig', [
-                        'order' => $order
+                        'order' => $order,
+                        'logo' => $image['logo']
                     ]
                 ),
                 'text/html'

@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block header %}
-    <h2 style="text-align: center"><span class="glyphicon glyphicon-ok-sign" style="font-size:25px; color:#33b5e5">Confirmation de votre commande</h2>
+    <h2 style="text-align: center"><span class="glyphicon glyphicon-ok-sign" style="font-size:25px; color:#33b5e5"></span> Confirmation de votre commande</h2>
 {% endblock %}
 
 {% block body %}
@@ -14,6 +14,4 @@
         <p>Votre commande d'un montant de <strong>{{ order.price }}€</strong> a bien été enregistrée. Un mail de confirmation contenant toutes les informations relatives à vos billets a été envoyé à l'adresse : <strong>{{ order.mail }}</strong></p>
         <p><em>Si cette adresse n'est pas la votre, si une erreur s'est glissée dans votre commande, veuillez vous munir de votre numéro de commande avant de nous contacter.</em></p>
     </div>
-
-    <a href={{ path("index") }}>Retour à l'accueil</a><br />
 {% endblock %}

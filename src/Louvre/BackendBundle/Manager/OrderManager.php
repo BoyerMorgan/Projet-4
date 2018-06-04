@@ -10,10 +10,12 @@ namespace Louvre\BackendBundle\Manager;
 
 use Louvre\BackendBundle\Entity\Tickets;
 use Louvre\BackendBundle\Entity\Command;
+use Louvre\BackendBundle\Exception\InvalidOrderException;
 use Louvre\BackendBundle\Utils\LouvreIdGenerator;
 use Louvre\BackendBundle\Utils\LouvreMailSender;
 use Louvre\BackendBundle\Utils\LouvrePriceCalculator;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
@@ -22,15 +24,27 @@ use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 class OrderManager
 {
     /**
-     * @var SessionInterface
+     * @var Session
      */
     private $session;
+
+    /**
+     * @var RequestStack
+     */
     private $requestStack;
+
+    /**
+     * @var EntityManager
+     */
     private $em;
     /**
      * @var LouvreMailSender
      */
     private $louvreMailSender;
+
+    /**
+     * @var string
+     */
     private $stripePrivateKey;
     /**
      * @var LouvrePriceCalculator
@@ -62,16 +76,21 @@ class OrderManager
 
     }
 
+    /**
+     * @param null $expectedStatus
+     * @return Command
+     * @throws InvalidOrderException
+     */
     public function getOrder($expectedStatus = null)
     {
         /** @var Command $order */
         $order = $this->session->get('order');
 
         if (!$order) {
-            throw new AccessDeniedException('Vous n\'avez pas accès à cette page' );
+            throw new InvalidOrderException();
         }
         if ($expectedStatus && $order->getOrderStatut() !== $expectedStatus) {
-            throw new AccessDeniedException('Vous n\'avez pas accès à cette page' );
+            throw new InvalidOrderException();
         }
 
         return $order;
@@ -159,6 +178,7 @@ class OrderManager
         $entityManager = $this->em;
         $entityManager->persist($order);
         $entityManager->flush();
+        return true;
     }
 
     /**

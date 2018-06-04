@@ -31,7 +31,6 @@ services:
             $stripePrivateKey: '%stripe_private_key%'
 
 
-#    louvre_backend.exception.order:
-#        class: Louvre\BackendBundle\Exception\InvalidOrderException
-#        tags:
-#          -  { name: kernel.event_listener, event: kernel.exception, method: ProcessError }
+    Louvre\BackendBundle\Listener\InvalidOrderExceptionListener:
+        tags:
+          -  { name: kernel.event_listener, event: kernel.exception, method: onKernelException }

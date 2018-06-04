@@ -6,42 +6,8 @@
 
 {% block body %}
 <br/>
-        <div class ="responsive">
-            <div class="col-sm-4 pull-left">
 
-            <div class="gallery">
-                <a target="_blank" href="https://www.louvre.fr/sites/default/files/imagecache/940x500/medias/medias_images/images/louvre-carrousel-eugene-delacroix-le-28-juillet-1830-la-liberte-guidant-le-peuple-detail.jpg?1519988083">
-                    <img src="https://www.louvre.fr/sites/default/files/imagecache/940x500/medias/medias_images/images/louvre-carrousel-eugene-delacroix-le-28-juillet-1830-la-liberte-guidant-le-peuple-detail.jpg?1519988083" alt="Carrousel" width="300" height="200">
-                </a>
-                <div class="desc">Liberté guidant le peuple - Eugène Delacroix</div>
-            </div>
-
-
-            <div class="gallery">
-                <a target="_blank" href="https://www.challenges.fr/assets/img/2016/04/12/cover-r4x3w1000-578dfc756b2f6-caravage.jpg">
-                    <img src="https://www.challenges.fr/assets/img/2016/04/12/cover-r4x3w1000-578dfc756b2f6-caravage.jpg" alt="Caravage" width="300" height="200">
-                </a>
-                <div class="desc">Décapitation d'Holopherne par Judith - Caravage</div>
-            </div>
-
-            <div class="gallery">
-                <a target="_blank" href="https://www.louvre.fr/sites/default/files/imagecache/940x768/medias/medias_images/images/louvre-serment-des-horaces.jpg">
-                    <img src="https://www.louvre.fr/sites/default/files/imagecache/940x768/medias/medias_images/images/louvre-serment-des-horaces.jpg" alt="Serment des Horaces" width="300" height="200">
-                </a>
-                <div class="desc">Serment des Horaces - David</div>
-            </div>
-
-            <div class="gallery">
-                <a target="_blank" href="https://www.louvre.fr/sites/default/files/imagecache/940x768/medias/medias_images/images/louvre-captif-quotl039esclave-rebellequot.jpg">
-                    <img src="https://www.louvre.fr/sites/default/files/imagecache/940x768/medias/medias_images/images/louvre-captif-quotl039esclave-rebellequot.jpg" alt="Captif" width="300" height="200">
-                </a>
-                <div class="desc">Captif - Michel-Ange</div>
-            </div>
-
-            </div>
-
-
-        <section class="col-sm-8">
+        <div class="well">
                 <p>
                 Le musée du Louvre, inauguré en 1793 sous l'appellation Muséum central des arts de la République dans le palais du Louvre, ancienne résidence royale située au centre de Paris, est aujourd'hui le plus grand musée d'art et d'antiquités au monde. Sa surface d'exposition est de 72 735 m26.
 
@@ -60,10 +26,10 @@
                 <div>
                     {# On affiche tous les messages flash dont le nom est « info » #}
                     {% for message in app.session.flashbag.get('erreur') %}
-                        <p>Message flash : {{ message }}</p>
+                            <p><strong>{{ message }}</strong></p>
                     {% endfor %}
                 </div>
-        </section>
+        </div>
 
     </div>
 {% endblock %}

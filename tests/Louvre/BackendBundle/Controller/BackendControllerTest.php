@@ -38,25 +38,26 @@ class BackendControllerTest extends WebTestCase
     {
 
        $order = new Command();
-        yield [200,'/homepage'];
-        yield [200,'/commande'];
-        yield [500,'/commande/billets'];
-        yield [200,'/commande/billets', clone $order->setOrderStatut(Command::COMMANDE_EN_ATTENTE)];
-        yield [500,'/commande/recap'];
-        yield [200,'/commande/recap', clone $order->setOrderStatut(Command::COMMANDE_EN_ATTENTE)];
-        yield [500,'/commande/confirmation'];
-        yield [200,'/commande/confirmation', clone $order->setOrderStatut(Command::PAIEMENT_VALIDE)];
-        yield [200,'/contact'];
-        yield [200,'/cgv'];
+        yield [301,'/'];
+        yield [200,'/fr/'];
+        yield [200,'/fr/commande'];
+        yield [302,'/fr/commande/billets'];
+        yield [200,'/fr/commande/billets', clone $order->setOrderStatut(Command::COMMANDE_EN_ATTENTE)];
+        yield [302,'/fr/commande/recap'];
+        yield [200,'/fr/commande/recap', clone $order->setOrderStatut(Command::COMMANDE_EN_ATTENTE)];
+        yield [302,'/fr/commande/confirmation'];
+        yield [200,'/fr/commande/confirmation', clone $order->setOrderStatut(Command::PAIEMENT_VALIDE)];
+        yield [200,'/fr/contact'];
+        yield [200,'/fr/cgv'];
     }
 
 
     public function testAddNewOrder()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/homepage');
+        $crawler = $client->request('GET', '/fr/');
 
-        $link = $crawler->selectLink('Accéder à la Billetterie')->link();
+        $link = $crawler->selectLink('Billetterie')->link();
         $crawler = $client->click($link);
 
         $form = $crawler->selectButton('Valider la commande')->form();

@@ -17,7 +17,7 @@ class BackendController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/homepage", name="index")
+     * @Route("/", name="index")
      */
     public function indexAction()
     {
@@ -54,7 +54,7 @@ class BackendController extends Controller
      * @param Request $request
      * @param OrderManager $orderManager
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     *
+     * @throws
      * @Route("/commande/billets", name="billets")
      */
     public function billetsAction(Request $request, OrderManager $orderManager)
@@ -85,6 +85,7 @@ class BackendController extends Controller
      * @throws \Doctrine\ORM\OptimisticLockException
      *
      * @Route("/commande/recap", name="recap")
+     * @throws \Louvre\BackendBundle\Exception\InvalidOrderException
      */
     public function recapAction(Request $request, OrderManager $orderManager)
     {
@@ -92,9 +93,10 @@ class BackendController extends Controller
 
         if ($request->isMethod('POST')) {
 
-            $orderManager->paymentOrder($order);
+            if($orderManager->paymentOrder($order)){
+                return $this->redirectToRoute('confirmation');
+            }
 
-            return $this->redirectToRoute('confirmation');
         }
         return $this->render('default/recap.html.twig', [
             'order' => $order,
@@ -106,6 +108,7 @@ class BackendController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @Route ("/commande/confirmation", name="confirmation")
+     * @throws \Louvre\BackendBundle\Exception\InvalidOrderException
      */
     public function confirmationAction(OrderManager $orderManager)
     {
