@@ -5,7 +5,7 @@ Confirmation avant paiement
 {% endblock %}
 
 {% block body %}
-    <h2 style="text-align: center">Récapitulatif de commande</h2>
+    <h2 style="text-align: center">{{ 'louvre.backendbundle.recap.titre'|trans }}</h2>
     <div class="well">
         <div>
             {% for message in app.session.flashbag.get('erreur') %}
@@ -13,25 +13,25 @@ Confirmation avant paiement
             {% endfor %}
         </div>
         <div class="recap">
-            <strong>Mail de contact</strong> : {{ order.mail }}<br/>
-            <strong>Date de la visite</strong> : {{ order.visitDate|date("d/m/Y") }}
+            <strong>{{ 'louvre.backendbundle.recap.mail'|trans }}</strong> : {{ order.mail }}<br/>
+            <strong>{{ 'louvre.backendbundle.recap.datevisite'|trans }}</strong> : {{ order.visitDate|date("d/m/Y") }}
         </div>
         {% for ticket in order.tickets %}
-            <h3><span class="glyphicon glyphicon-user" style="font-size:25px; color:#33b5e5"></span> Billet {{ loop.index }}</h3>
+            <h3><span class="glyphicon glyphicon-user" style="font-size:25px; color:#33b5e5"></span> {{ 'louvre.backendbundle.billets.numero'|trans }}{{ loop.index }}</h3>
             <ul>
-                <li>Nom : {{ ticket.name }}</li>
-                <li>Prénom : {{ ticket.forename }}</li>
-                <li>Date de naissance : {{ ticket.birthDate|date("d/m/Y") }}</li>
-                <li>Prix du billet : <strong>{{ ticket.price }}€</strong></li>
+                <li>{{ 'louvre.backendbundle.recap.nom'|trans }} : {{ ticket.name }}</li>
+                <li>{{ 'louvre.backendbundle.recap.prenom'|trans }} : {{ ticket.forename }}</li>
+                <li>{{ 'louvre.backendbundle.recap.datenaissance'|trans }} : {{ ticket.birthDate|date("d/m/Y") }}</li>
+                <li>{{ 'louvre.backendbundle.recap.prixbillet'|trans }} : <strong>{{ ticket.price }}€</strong></li>
 
             </ul>
                 {% if ticket.reduced %}
-                    <em>Billet à tarif réduit - Veuillez vous munir du justificatif adéquat sous peine de vous voir refuser l'entrée au musée</em>
+                    <em>{{ 'louvre.backendbundle.recap.reduit'|trans }}</em>
                 {% endif %}
 
         {% endfor %}
 
-        <h3>Prix total de la commande : {{ order.price }} €</h3>
+        <h3>{{ 'louvre.backendbundle.recap.prixtotal'|trans }} : {{ order.price }} €</h3>
 
         <form method="POST">
 
@@ -51,10 +51,10 @@ Confirmation avant paiement
                 document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
             </script>
             <div class="row" style="margin-right:-3px;margin-left:-3px">
-            <button class="btn btn-info btn-md"><span class="glyphicon glyphicon-shopping-cart"></span> Payez par carte bancaire</button>
+            <button class="btn btn-info btn-md"><span class="glyphicon glyphicon-shopping-cart"></span>{{ 'louvre.backendbundle.recap.cb'|trans }}</button>
                 <div class="btn-group pull-right">
-                <a class="btn btn-info btn-md" href= {{ path("commande") }}>Modifier ma commande</a>
-                <a class="btn btn-info btn-md" href=" {{ path("billets") }}">Modifier mes billets</a>
+                <a class="btn btn-info btn-md" href="{{ path("commande") }}">{{ 'louvre.backendbundle.recap.modifiercommande'|trans }}</a>
+                <a class="btn btn-info btn-md" href="{{ path("billets") }}">{{ 'louvre.backendbundle.recap.modifierbillets'|trans }}</a>
                 </div>
             </div>
         </form>

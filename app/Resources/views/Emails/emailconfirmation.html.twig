@@ -1,27 +1,27 @@
-<h3>Confirmation de votre commande</h3>
+<h3>{{ 'louvre.backendbundle.email.titre'|trans }}</h3>
 
 <img src="{{logo}}" class="img-responsive center-block" alt="Responsive image">
 
-<p>Bonjour, votre commande a bien été enregistrée </p>
+<p>{{ 'louvre.backendbundle.email.intro'|trans }}</p>
 
 <p>
-Voici le récapitulatif de votre commande :<br />
-Date de visite : <strong>{{ order.visitDate|date("d/m/Y") }}</strong> <br />
-Numéro de réservation : <strong>{{ order.orderId }}</strong>
+    {{ 'louvre.backendbundle.recap.titre'|trans }} :<br />
+    {{ 'louvre.backendbundle.recap.datevisite'|trans }} <strong>{{ order.visitDate|date("d/m/Y") }}</strong> <br />
+    {{ 'louvre.backendbundle.confirmation.numerocommande'|trans }} <strong>{{ order.orderId }}</strong>
 </p>
 
 {% for ticket in order.tickets %}
-    <h3> Billet {{ loop.index }}</h3>
+    <h3> {{ 'louvre.backendbundle.billets.numero'|trans }}{{ loop.index }}</h3>
     <ul>
-        <li>Nom : {{ ticket.name }}</li>
-        <li>Prénom : {{ ticket.forename }}</li>
-        <li>Date de naissance : {{ ticket.birthDate|date("d/m/Y") }}</li>
-        <li>Prix du billet : <strong>{{ ticket.price }}€</strong></li>
+        <li>{{ 'louvre.backendbundle.recap.nom'|trans }} : {{ ticket.name }}</li>
+        <li>{{ 'louvre.backendbundle.recap.prenom'|trans }} : {{ ticket.forename }}</li>
+        <li>{{ 'louvre.backendbundle.recap.datenaissance'|trans }} : {{ ticket.birthDate|date("d/m/Y") }}</li>
+        <li>{{ 'louvre.backendbundle.recap.prixbillet'|trans }}t : <strong>{{ ticket.price }}€</strong></li>
 
     </ul>
     {% if ticket.reduced %}
-        <em>Billet à tarif réduit - Veuillez vous munir du justificatif adéquat sous peine de vous voir refuser l'entrée au musée</em>
+        <em>{{ 'louvre.backendbundle.recap.reduit'|trans }}</em>
     {% endif %}
 {% endfor %}
 
-<p>Les billets sont nominatifs, pensez à venir muni d'un justificatif d'identité</p>
+<p>{{ 'louvre.backendbundle.email.conclusion'|trans }}</p>

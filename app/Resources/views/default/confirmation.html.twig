@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block header %}
-    <h2 style="text-align: center"><span class="glyphicon glyphicon-ok-sign" style="font-size:25px; color:#33b5e5"></span> Confirmation de votre commande</h2>
+    <h2 style="text-align: center"><span class="glyphicon glyphicon-ok-sign" style="font-size:25px; color:#33b5e5"></span>{{ 'louvre.backendbundle.confirmation.introduction'|trans }}</h2>
 {% endblock %}
 
 {% block body %}
     <div class="well">
-        <h3>Commande numéro : {{ order.orderId }}</h3>
-        <p>Votre commande d'un montant de <strong>{{ order.price }}€</strong> a bien été enregistrée. Un mail de confirmation contenant toutes les informations relatives à vos billets a été envoyé à l'adresse : <strong>{{ order.mail }}</strong></p>
-        <p><em>Si cette adresse n'est pas la votre, si une erreur s'est glissée dans votre commande, veuillez vous munir de votre numéro de commande avant de nous contacter.</em></p>
+        <h3>{{ 'louvre.backendbundle.confirmation.numerocommande'|trans }} : {{ order.orderId }}</h3>
+        <p>{{ 'louvre.backendbundle.confirmation.recap1'|trans }} <strong>{{ order.price }}€ </strong>{{ 'louvre.backendbundle.confirmation.recap2'|trans }} : <strong>{{ order.mail }}</strong></p>
+        <p><em>{{ 'louvre.backendbundle.confirmation.recap3'|trans }}</em></p>
     </div>
 {% endblock %}

@@ -16,27 +16,10 @@
             text-align: justify;
         }
 
-        div.gallery {
-            margin: 5px;
-            border: 1px solid #ccc;
-            float: left;
-            width: 180px;
-        }
-
-        div.gallery:hover {
-            border: 1px solid #777;
-        }
-
-        div.gallery img {
-            width: 100%;
-            height: auto;
-        }
-        
-
-        div.desc {
-            padding: 15px;
-            text-align: center;
-        }
+        /*div.desc {*/
+            /*padding: 15px;*/
+            /*text-align: center;*/
+        /*}*/
 
         * {
             box-sizing: border-box;
@@ -48,17 +31,13 @@
             margin-bottom: -6px;
         }
 
-        .top-buffer {
-            margin-top:10px;
-        }
+        /*.top-buffer {*/
+            /*margin-top:10px;*/
+        /*}*/
 
-        div.float-left {
-            margin-left: -50px;
-            margin-top: -20px;
-        }
 
         .img-fluid {
-            max-width: 50%;
+            max-width: 80%;
         }
 
         .row-top {
@@ -72,15 +51,21 @@
 
 <div class="container">
     <div id="header" class="jumbotron">
-        <div class="float-left">
-        <img src="{{ asset('images/Louvre-LOGO.png') }}" class="img-fluid" alt="Responsive image">
+        <div class="row">
+            <div class="pull-left">
+            <img src="{{ asset('images/Louvre-LOGO.png') }}" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="btn-group pull-right">
+                <a class="btn btn-info btn-sm" style="font-weight: bold" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">FR</a>
+                <a class="btn btn-info btn-sm" style="font-weight: bold" href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a>
+            </div>
         </div>
         <hr>
         <div class="row-top">
-            <a class="btn btn-info btn-md head pull-left" style="font-weight: bold" href={{ path("index") }}>Accueil</a>
+            <a class="btn btn-info btn-md head pull-left" style="font-weight: bold" href={{ path("index") }}>{{ 'louvre.backendbundle.layout.accueil'|trans }}</a>
                 <div class="btn-group pull-right">
-            <a class="btn btn-info btn-md head" style="font-weight: bold" href={{ path("commande") }}>Billetterie</a>
-            <a class="btn btn-info btn-md head" style="font-weight: bold" href={{ path("contact") }}>Contact</a>
+            <a class="btn btn-info btn-md head" style="font-weight: bold" href={{ path("commande") }}>{{ 'louvre.backendbundle.layout.billetterie'|trans }}</a>
+            <a class="btn btn-info btn-md head" style="font-weight: bold" href={{ path("contact") }}>{{ 'louvre.backendbundle.layout.contact'|trans }}</a>
                 </div>
         </div>
     </div>
@@ -88,8 +73,7 @@
         {% block header %}
 
         {% endblock %}
-    </div>
-</div>
+
 </head>
 
 <body>

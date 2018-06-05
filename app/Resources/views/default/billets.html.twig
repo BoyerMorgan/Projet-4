@@ -5,29 +5,29 @@
 {% endblock %}
 
 {% block body %}
-    <h2 align="center"><span class="glyphicon glyphicon-info-sign" style="font-size:25px; color:#33b5e5"></span> Informations concernant les billets</h2>
+    <h2 align="center"><span class="glyphicon glyphicon-info-sign" style="font-size:25px; color:#33b5e5"></span>{{ 'louvre.backendbundle.billets.introduction'|trans }}</h2>
     <div class="well">
         <p>
             <ul>
-                <li>Ceux-ci sont nominatifs, veuillez à bien renseigner les champs "Nom" et "Prénom".</li>
-                <li>Le tarif réduit ne s'applique que dans certaines conditions.</li>
-                <li><strong>L'entrée au musée pourra être refusé à quiconque ne présentant pas les documents requis.</strong></li>
+                <li>{{ 'louvre.backendbundle.billets.info1'|trans }}</li>
+                <li>{{ 'louvre.backendbundle.billets.info2'|trans }}</li>
+                <li><strong>{{ 'louvre.backendbundle.billets.info3'|trans }}</strong></li>
             </ul>
         </p>
     </div>
-<h3><span class="glyphicon glyphicon-tasks" style="font-size:25px; color:#33b5e5"></span> Informations relatives à la commande</h3>
+<h3><span class="glyphicon glyphicon-tasks" style="font-size:25px; color:#33b5e5"></span>{{ 'louvre.backendbundle.billets.infocommande'|trans }}</h3>
 
     <div class="well">
         {{ form_start(form) }}
 
         {% for ticket in form.tickets %}
-            <h3><span class="glyphicon glyphicon-user" style="font-size:25px; color:#33b5e5"></span> Billet {{ loop.index }}</h3>
+            <h3><span class="glyphicon glyphicon-user" style="font-size:25px; color:#33b5e5"></span>{{ 'louvre.backendbundle.billets.numero'|trans }}{{ loop.index }}</h3>
             {{ form_row(ticket) }}
 
         {% endfor %}
             <div class="row" style="margin-right:-3px;margin-left:-3px">
-                <div class="pull-left">J'ai lu et j'accepte les <a href={{ path("cgv") }}> conditions générales de ventes</a>  <input type="checkbox" name="cgv" required></div>
-                <div class="pull-right"><input type="submit" class="btn btn-info" value="Valider" /></div>
+                <div class="pull-left">{{ 'louvre.backendbundle.billets.cgv1'|trans }}<a href={{ path("cgv") }}> {{ 'louvre.backendbundle.billets.cgv2'|trans }}</a>  <input type="checkbox" name="cgv" required></div>
+                <div class="pull-right"><input type="submit" class="btn btn-info" value={{ 'louvre.backendbundle.billets.valider'|trans }}></div>
             </div>
         {{ form_end(form) }}
 
