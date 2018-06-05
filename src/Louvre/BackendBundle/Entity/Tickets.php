@@ -30,8 +30,8 @@ class Tickets
      * @Assert\Length(
      *     min = 2,
      *     max = 50,
-     *     minMessage="Votre nom ne peut pas faire moins de {{ limit }} caractères.",
-     *     maxMessage="Votre nom ne peut pas faire plus de {{ limite }} caractères"
+     *     minMessage="nom.trop.court",
+     *     maxMessage="nom.trop.long"
      * )
      */
     private $name;
@@ -43,8 +43,8 @@ class Tickets
      * @Assert\Length(
      *     min = 2,
      *     max = 50,
-     *     minMessage="Votre nom ne peut pas faire moins de {{ limit }} caractères.",
-     *     maxMessage="Votre nom ne peut pas faire plus de {{ limite }} caractères"
+     *     minMessage="prenom.trop.court",
+     *     maxMessage="prenom.trop.long"
      * )
      */
     private $forename;
@@ -55,7 +55,7 @@ class Tickets
      * @ORM\Column(name="birthDate", type="string")
      * @Assert\LessThan(
      *     "today",
-     *     message = "Merci de vérifier votre date de naissance"
+     *     message = "date.naissance"
      * )
      */
     private $birthDate;

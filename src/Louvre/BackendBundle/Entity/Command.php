@@ -38,7 +38,7 @@ class Command
      *
      * @ORM\Column(name="mail", type="string", length=255)
      * @Assert\Email(
-     *     message = "Veuillez entrer une adresse mail valide.",
+     *     message = "adresse.mail",
      *     checkMX= true
      * )
      */
@@ -57,7 +57,7 @@ class Command
      * @ORM\Column(name="visitDate", type="datetime")
      * @Assert\GreaterThanOrEqual(
      *     "today",
-     *     message = "Il n'est pas possible de réserver un billet pour une date antérieure à celle du jour."
+     *     message = "musee.anterieur"
      * )
      * @MyAssert\CheckDaysHolidays()
      * @MyAssert\CheckSunday()

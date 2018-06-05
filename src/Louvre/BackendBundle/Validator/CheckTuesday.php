@@ -9,6 +9,6 @@ use Symfony\Component\Validator\Constraint;
  */
 class CheckTuesday extends Constraint
 {
-    public $message = "Le musée est fermé tous les mardi de l'année.";
+    public $message = "musee.ferme.mardi";
 
 }

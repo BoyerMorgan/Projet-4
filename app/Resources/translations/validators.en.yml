@@ -1,0 +1,12 @@
+musee.ferme.jours.feries: "The museum is closed on holidays"
+musee.ferme.dimanche: "The museum is closed every Sunday of the year"
+musee.ferme.mardi: 'The museum is closed every Tuesday of the year'
+musee.apres.quatorze: 'You can not take day ticket after 14h. Please tick the "Half-day ticket" button or choose another date'
+musee.plein: 'No places available for this day'
+musee.anterieur: 'It is not possible to book at a date earlier than today '
+adresse.mail: 'Please enter a valid email adress'
+date.naissance: 'Please check your birth day date'
+prenom.trop.court: "Your first name can not do less than {{ limit }} caracters."
+prenom.trop.long: "Your first name can not do more than {{ limit }} caracters."
+nom.trop.court: "Your name can not do less than {{ limit }} caracters."
+nom.trop.long: "Your name can not do more than {{ limit }} caracters."

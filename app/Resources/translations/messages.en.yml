@@ -56,3 +56,14 @@ louvre:
             intro: 'Hello, your order has been successfully registered'
             conclusion: 'Tickets are nominative, think to come with a proof of identity'
 
+Date de visite souhaitée: 'Visit date'
+Billet demi-journée: 'Half-day ticket'
+Adresse email: 'Email adress'
+Nombre de billets souhaités: 'Number of tickets desired'
+
+Nom: 'Name'
+Prénom: 'First name'
+Date de naissance: 'Birth date'
+Tarif réduit: 'Reduced'
+Pays de résidence: 'Country'
+

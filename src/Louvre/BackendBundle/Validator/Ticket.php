@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class Ticket extends Constraint
 {
-    public $message = 'Plus de place pour ce jour-ci';
+    public $message = 'musee.plein';
 
     public function getTargets()
     {

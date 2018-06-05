@@ -9,6 +9,6 @@ use Symfony\Component\Validator\Constraint;
  */
 class CheckDaysHolidays extends Constraint
 {
-    public $message = "Le musée est fermé les jours feriés";
+    public $message = "musee.ferme.jours.feries";
 
 }

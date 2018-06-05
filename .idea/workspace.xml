@@ -5,14 +5,13 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/commande.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/commande.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/recap.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/recap.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidays.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidays.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Ticket.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Ticket.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,47 +28,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="validators.fr.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.fr.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="validators.en.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.en.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="messages.en.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="79" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
+            <state relative-caret-position="552">
+              <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.fr.yml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="messages.fr.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.fr.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+            <state relative-caret-position="-91">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recap.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/recap.html.twig">
+      <file leaf-file-name="CheckTuesday.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="71" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="71" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="emailconfirmation.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig">
+      <file leaf-file-name="CheckDaysHolidaysValidator.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidaysValidator.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirmation.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="74" />
+            <state relative-caret-position="289">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -82,12 +90,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/commande.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/confirmation.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/contact.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/cgv.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/billets.html.twig" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/email.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/cgv.html.twig" />
@@ -103,9 +105,7 @@
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Utils/PriceCalculator/LouvrePriceCalculator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/FormManager.php" />
         <option value="$PROJECT_DIR$/tests/Louvre/BackendBundle/Utils/LouvreIdGeneratorTest.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php" />
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Utils/LouvreIdGenerator.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Form/BilletType.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Form/TicketsType.php" />
@@ -117,7 +117,6 @@
         <option value="$PROJECT_DIR$/tests/Louvre/BackendBundle/Utils/LouvrePriceCalculatorTest.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php" />
         <option value="$PROJECT_DIR$/tests/Louvre/BackendBundle/Controller/BackendControllerTest.php" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Manager/OrderManager.php" />
         <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Listener/InvalidOrderExceptionListener.php" />
@@ -126,13 +125,22 @@
         <option value="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/commande.html.twig" />
-        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Form/CommandType.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/billets.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/recap.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Form/CommandType.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidays.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Ticket.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php" />
+        <option value="$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php" />
+        <option value="$PROJECT_DIR$/app/Resources/translations/validators.fr.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/translations/validators.en.yml" />
         <option value="$PROJECT_DIR$/app/Resources/translations/messages.en.yml" />
+        <option value="$PROJECT_DIR$/app/Resources/translations/messages.fr.yml" />
       </list>
     </option>
   </component>
@@ -351,6 +359,14 @@
               <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Utils" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="P4_OCR" type="b2602c69:ProjectViewProjectNode" />
+              <item name="P4_OCR" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Louvre" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="BackendBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Validator" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -430,12 +446,12 @@
       <workItem from="1528036878563" duration="1885000" />
       <workItem from="1528102316499" duration="5732000" />
       <workItem from="1528115130850" duration="3480000" />
-      <workItem from="1528189822458" duration="7565000" />
+      <workItem from="1528189822458" duration="12146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256863000" />
+    <option name="totallyTimeSpent" value="261444000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -447,10 +463,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7619048" visible="true" weight="0.17430703" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7619048" visible="true" weight="0.28666666" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3297062" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -459,7 +475,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32317737" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.5016077" side_tool="true" weight="0.12260128" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.27906978" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27906978" />
       <window_info id="Favorites" order="2" sideWeight="0.23809524" side_tool="true" weight="0.28739232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -525,36 +541,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/billets.html.twig" />
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Resources/views/Backend/email.html.twig" />
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/cgv.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/HourValidator.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -588,20 +574,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidaysValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSundayValidator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -641,13 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/BilletType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerTrait.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -669,23 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2431">
-          <caret line="144" column="7" selection-start-line="144" selection-start-column="7" selection-end-line="144" selection-end-column="7" />
-          <folding>
-            <element signature="e#47#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3638">
-          <caret line="217" column="20" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/stripe/stripe-php/lib/ApiOperations/Create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -700,13 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -718,16 +659,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="27" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
-          <folding>
-            <element signature="e#51#91#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,13 +690,6 @@
           <folding>
             <element signature="e#138#195#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -805,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commande.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="50" column="27" lean-forward="true" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/contact.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -836,13 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/CommandType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/default/confirmation.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -857,6 +767,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Controller/BackendController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="e#51#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/BilletType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Form/CommandType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="78" selection-start-line="22" selection-start-column="78" selection-end-line="22" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/default/commande.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/Emails/emailconfirmation.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -864,17 +812,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.fr.yml">
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidaysValidator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+        <state relative-caret-position="289">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSunday.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckDaysHolidays.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckTuesday.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Hour.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="5" selection-start-column="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/Ticket.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Command.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-904">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Entity/Tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-816">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
+          <folding>
+            <element signature="e#47#79#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Louvre/BackendBundle/Validator/CheckSundayValidator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/validators.en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="79" selection-start-line="29" selection-start-column="79" selection-end-line="29" selection-end-column="79" />
+        <state relative-caret-position="552">
+          <caret line="66" column="23" selection-start-line="66" selection-start-column="23" selection-end-line="66" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/translations/messages.fr.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-91">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="50" selection-end-line="22" selection-end-column="50" />
         </state>
       </provider>
     </entry>
