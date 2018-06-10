@@ -60,7 +60,7 @@ class BackendControllerTest extends WebTestCase
         $link = $crawler->selectLink('Billetterie')->link();
         $crawler = $client->click($link);
 
-        $form = $crawler->selectButton('Valider la commande')->form();
+        $form = $crawler->selectButton('Valider')->form();
 
         $form['louvre_backendbundle_command_order[visitDate][day]'] = 25;
         $form['louvre_backendbundle_command_order[visitDate][month]'] = 8;

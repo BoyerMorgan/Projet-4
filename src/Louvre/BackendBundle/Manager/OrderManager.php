@@ -129,6 +129,17 @@ class OrderManager
 
     /**
      * @param Command $order
+     */
+    public function validateOrder(Command $order)
+    {
+        $this->louvrePriceCalculator->setCommandPrice($order);
+        $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
+
+    }
+
+
+    /**
+     * @param Command $order
      * @return bool
      * @throws \Doctrine\ORM\OptimisticLockException
      */
@@ -180,17 +191,6 @@ class OrderManager
         $entityManager->flush();
         return true;
     }
-
-    /**
-     * @param Command $order
-     */
-    public function validateOrder(Command $order)
-    {
-        $this->louvrePriceCalculator->setCommandPrice($order);
-        $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
-
-    }
-
 
     /**
      *

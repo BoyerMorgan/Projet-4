@@ -5,7 +5,6 @@ namespace Louvre\BackendBundle\Controller;
 use Louvre\BackendBundle\Entity\Command;
 use Louvre\BackendBundle\Form\BilletType;
 use Louvre\BackendBundle\Form\CommandType;
-//use Louvre\BackendBundle\Manager\FormManager;
 use Louvre\BackendBundle\Manager\OrderManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

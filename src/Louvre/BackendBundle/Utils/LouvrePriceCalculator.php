@@ -46,12 +46,24 @@ class LouvrePriceCalculator
                 $price = 8;
                 $total += 8;
             }
-            $ticket->setPrice($price);
-
+            if ($order->getHalfDay() == false) {
+                $finalPrice = $price;
+            }
+            else {
+                $finalPrice = $price/2;
+            }
+            $ticket->setPrice($finalPrice);
         }
-        $order->setPrice($total);
+        if ($order->getHalfDay() == false) {
+            $finalTotal = $total;
+        }
+        else {
+            $finalTotal = $total/2;
+        }
 
-        return $total;
+        $order->setPrice($finalTotal);
+
+        return $finalTotal;
 
     }
 }

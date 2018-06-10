@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class LouvreIdGeneratorTest extends TestCase
 {
 
-    public function testgenerateUniqueId()
+    public function testGenerateUniqueId()
     {
 
         $generator = new LouvreIdGenerator();
