@@ -18,8 +18,9 @@ class BackendController extends Controller
      *
      * @Route("/", name="index")
      */
-    public function indexAction()
+    public function indexAction(OrderManager $orderManager)
     {
+        $orderManager->clearCurrentOrder();
         return $this->render('default/index.html.twig');
     }
 
@@ -114,7 +115,7 @@ class BackendController extends Controller
 
         $order = $orderManager->getOrder(Command::PAIEMENT_VALIDE);
 
-        $orderManager->confirmationOrder();
+        $orderManager->clearCurrentOrder();
 
         return $this->render('default/confirmation.html.twig', [
          'order' => $order

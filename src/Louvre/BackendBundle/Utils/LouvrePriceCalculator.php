@@ -6,6 +6,15 @@ use Louvre\BackendBundle\Entity\Command;
 
 class LouvrePriceCalculator
 {
+    const AGE_ADULTE = 12;
+    const AGE_SENIOR = 60;
+    const AGE_ENFANT = 4;
+    const TARIf_DEMIE_JOURNEE = 0.5;
+    const PLEIN_TARIF = 16;
+    const TARIF_GRATUIT = 0;
+    const TARIF_ENFANT = 8;
+    const TARIF_REDUIT = 10;
+    const TARIF_SENIOR = 12;
 
     /**
      * @param Command $order
@@ -24,33 +33,33 @@ class LouvrePriceCalculator
             $interval = $birthDay->diff($dateActual);
             $age = $interval->format('%Y');
 
-            if (intval($age) >= 12 && intval($age) < 60 && !$ticket->getReduced()) {
-                $price = 16;
-                $total += 16;
-            } elseif (intval($age) <= 4) {
-                $price = 0;
-                $total += 0;
-            } elseif ($ticket->getReduced() && intval($age) <= 4) {
-                $price = 0;
-                $total += 0;
-            } elseif ($ticket->getReduced() && intval($age) >= 4 && intval($age) <= 12) {
-                $price = 8;
-                $total += 8;
-            } elseif ($ticket->getReduced() && intval($age) >= 12) {
-                $price = 10;
-                $total += 10;
-            } elseif (intval($age) >= 60) {
-                $price = 12;
-                $total += 12;
+            if (intval($age) >= self::AGE_ADULTE && intval($age) < self::AGE_SENIOR && !$ticket->getReduced()) {
+                $price = self::PLEIN_TARIF;
+                $total += self::PLEIN_TARIF;
+            } elseif (intval($age) <= self::AGE_ENFANT) {
+                $price = self::TARIF_GRATUIT;
+                $total += self::TARIF_GRATUIT;
+            } elseif ($ticket->getReduced() && intval($age) <= self::AGE_ENFANT) {
+                $price = self::TARIF_GRATUIT;
+                $total += self::TARIF_GRATUIT;
+            } elseif ($ticket->getReduced() && intval($age) >= self::AGE_ENFANT && intval($age) <= self::AGE_ADULTE) {
+                $price = self::TARIF_ENFANT;
+                $total += self::TARIF_ENFANT;
+            } elseif ($ticket->getReduced() && intval($age) >= self::AGE_ADULTE) {
+                $price = self::TARIF_REDUIT;
+                $total += self::TARIF_REDUIT;
+            } elseif (intval($age) >= self::AGE_SENIOR) {
+                $price = self::TARIF_SENIOR;
+                $total += self::TARIF_SENIOR;
             } else {
-                $price = 8;
-                $total += 8;
+                $price = self::TARIF_ENFANT;
+                $total += self::TARIF_ENFANT;
             }
             if ($order->getHalfDay() == false) {
                 $finalPrice = $price;
             }
             else {
-                $finalPrice = $price/2;
+                $finalPrice = $price*self::TARIf_DEMIE_JOURNEE;
             }
             $ticket->setPrice($finalPrice);
         }
@@ -58,7 +67,7 @@ class LouvrePriceCalculator
             $finalTotal = $total;
         }
         else {
-            $finalTotal = $total/2;
+            $finalTotal = $total*self::TARIf_DEMIE_JOURNEE;
         }
 
         $order->setPrice($finalTotal);

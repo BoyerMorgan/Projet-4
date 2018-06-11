@@ -31,7 +31,8 @@ class Tickets
      *     min = 2,
      *     max = 50,
      *     minMessage="nom.trop.court",
-     *     maxMessage="nom.trop.long"
+     *     maxMessage="nom.trop.long",
+     *     groups={"step1", "step2"}
      * )
      */
     private $name;
@@ -44,7 +45,8 @@ class Tickets
      *     min = 2,
      *     max = 50,
      *     minMessage="prenom.trop.court",
-     *     maxMessage="prenom.trop.long"
+     *     maxMessage="prenom.trop.long",
+     *     groups={"step1", "step2"}
      * )
      */
     private $forename;
@@ -55,7 +57,8 @@ class Tickets
      * @ORM\Column(name="birthDate", type="string")
      * @Assert\LessThan(
      *     "today",
-     *     message = "date.naissance"
+     *     message = "date.naissance",
+     *     groups={"step1", "step2"}
      * )
      */
     private $birthDate;

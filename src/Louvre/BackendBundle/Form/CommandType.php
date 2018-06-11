@@ -31,6 +31,7 @@ class CommandType extends AbstractType
             ))
             ->add('nbTickets', ChoiceType::class, array(
                 'label' => 'Nombre de billets souhaités',
+                'translation_domain' => false,
                 'choices' => array(
                     '1' => 1,
                     '2' => 2,
@@ -52,7 +53,8 @@ class CommandType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Command::class
+            'data_class' => Command::class,
+            'validation_groups' => ['step1']
         ));
     }
 

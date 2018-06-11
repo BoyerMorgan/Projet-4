@@ -39,7 +39,8 @@ class Command
      * @ORM\Column(name="mail", type="string", length=255)
      * @Assert\Email(
      *     message = "adresse.mail",
-     *     checkMX= true
+     *     checkMX= true,
+     *     groups={"step1"}
      * )
      */
     private $mail;
@@ -57,11 +58,12 @@ class Command
      * @ORM\Column(name="visitDate", type="datetime")
      * @Assert\GreaterThanOrEqual(
      *     "today",
-     *     message = "musee.anterieur"
+     *     message = "musee.anterieur",
+     *     groups={"step1"}
      * )
-     * @MyAssert\CheckDaysHolidays()
-     * @MyAssert\CheckSunday()
-     * @MyAssert\CheckTuesday()
+     * @MyAssert\CheckDaysHolidays(groups={"step1"})
+     * @MyAssert\CheckSunday(groups={"step1"})
+     * @MyAssert\CheckTuesday(groups={"step1"})
      */
     private $visitDate;
 

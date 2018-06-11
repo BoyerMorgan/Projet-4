@@ -33,7 +33,8 @@ class BilletType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => Command::class
+            'data_class' => Command::class,
+            'validation_groups' => ['step2']
         ));
     }
 

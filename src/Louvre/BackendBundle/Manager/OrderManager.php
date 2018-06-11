@@ -14,6 +14,7 @@ use Louvre\BackendBundle\Exception\InvalidOrderException;
 use Louvre\BackendBundle\Utils\LouvreIdGenerator;
 use Louvre\BackendBundle\Utils\LouvreMailSender;
 use Louvre\BackendBundle\Utils\LouvrePriceCalculator;
+use Stripe\Order;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -102,7 +103,13 @@ class OrderManager
      */
     public function init()
     {
-        return new Command();
+        try {
+            $command = $this->getOrder();
+        } catch (InvalidOrderException $e) {
+            $command = new Command();
+        }
+
+        return $command;
     }
 
 
@@ -112,10 +119,15 @@ class OrderManager
      */
     public function initOrder(Command $order)
     {
-
-        for ($i = 1; $i <= $order->getNbTickets(); $i++) {
-            $ticket = new Tickets();
-            $order->addTicket($ticket);
+        while($order->getTickets()->count() !== $order->getNbTickets())
+        {
+            if ($order->getNbTickets() > $order->getTickets()->count()) {
+                $ticket = new Tickets();
+                $order->addTicket($ticket);
+            }
+            if ($order->getNbTickets() < $order->getTickets()->count()) {
+                $order->removeTicket($order->getTickets()->last());
+            }
         }
 
         $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
@@ -142,6 +154,7 @@ class OrderManager
      * @param Command $order
      * @return bool
      * @throws \Doctrine\ORM\OptimisticLockException
+     * @throws \Doctrine\ORM\ORMException
      */
     public function paymentOrder(Command $order)
     {
@@ -195,7 +208,7 @@ class OrderManager
     /**
      *
      */
-    public function confirmationOrder()
+    public function clearCurrentOrder()
     {
         $this->session->clear();
     }

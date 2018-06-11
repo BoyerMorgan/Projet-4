@@ -38,7 +38,7 @@ class TicketValidator extends ConstraintValidator
         ;
 
 
-        if ((1000 - $nbTicketsSold ) < 0) {
+        if ((1000 - $nbTicketsSold ) <= 0) {
             $this->context->buildViolation($constraint->message)
                 ->atPath('visitDate')
                 ->addViolation();
