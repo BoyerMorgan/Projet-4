@@ -15,8 +15,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="command")
  * @ORM\Entity(repositoryClass="Louvre\BackendBundle\Repository\CommandRepository")
  * @ORM\HasLifecycleCallbacks()
- * @MyAssert\Ticket()
- * @MyAssert\Hour()
+ * @MyAssert\Ticket(groups={"step1"})
+ * @MyAssert\Hour(groups={"step1"})
  *
  */
 class Command

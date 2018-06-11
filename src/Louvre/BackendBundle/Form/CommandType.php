@@ -31,7 +31,6 @@ class CommandType extends AbstractType
             ))
             ->add('nbTickets', ChoiceType::class, array(
                 'label' => 'Nombre de billets souhaités',
-                'translation_domain' => false,
                 'choices' => array(
                     '1' => 1,
                     '2' => 2,

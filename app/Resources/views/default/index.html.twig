@@ -16,7 +16,7 @@
                 <div>
                     {# On affiche tous les messages flash dont le nom est « info » #}
                     {% for message in app.session.flashbag.get('erreur') %}
-                            <p><strong>{{ message }}</strong></p>
+                            <p><strong>{{ message|trans }}</strong></p>
                     {% endfor %}
                 </div>
         </div>

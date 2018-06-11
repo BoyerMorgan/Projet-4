@@ -22,6 +22,7 @@ louvre:
             tarifreduitsuite: '(student, museum employee, department of the Ministry of Culture, military ...)'
             infocommande: 'Order informations'
             validercommande: 'Validate order'
+            attention: 'It is not possible to order a ticket on a sunday, a tuesday or a holiday day !'
         billets:
             introduction: 'Tickets informations'
             info1: 'These are nominative, please fill in the fields "Name" and "First name".'
@@ -67,3 +68,7 @@ Date de naissance: 'Birth date'
 Tarif réduit: 'Reduced'
 Pays de résidence: 'Country'
 
+erreur.page: "You don't have access to this page"
+error.stripe.communication: "Error communicating with Stripe's servers, please retry in a moment"
+error.stripe.interne: "An internal error has been reported, it will be corrected as soon as possible, please excuse us for the inconvenience"
+error.stripe.serveur: "Stripe's servers do not respond, please retry in a moment"

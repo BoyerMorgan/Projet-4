@@ -9,7 +9,7 @@ Confirmation avant paiement
     <div class="well">
         <div>
             {% for message in app.session.flashbag.get('erreur') %}
-                <p><strong>Erreur : {{ message }}</strong></p>
+                <p><strong>Erreur : {{ message|trans }}</strong></p>
             {% endfor %}
         </div>
         <div class="recap">

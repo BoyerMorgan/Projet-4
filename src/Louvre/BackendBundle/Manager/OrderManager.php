@@ -14,12 +14,11 @@ use Louvre\BackendBundle\Exception\InvalidOrderException;
 use Louvre\BackendBundle\Utils\LouvreIdGenerator;
 use Louvre\BackendBundle\Utils\LouvreMailSender;
 use Louvre\BackendBundle\Utils\LouvrePriceCalculator;
-use Stripe\Order;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Doctrine\ORM\EntityManager;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 class OrderManager
@@ -35,7 +34,7 @@ class OrderManager
     private $requestStack;
 
     /**
-     * @var EntityManager
+     * @var EntityManagerInterface
      */
     private $em;
     /**
@@ -59,7 +58,7 @@ class OrderManager
 
 
 
-    public function __construct(EntityManager $em,
+    public function __construct(EntityManagerInterface $em,
                                 LouvreMailSender $louvreMailSender,
                                 RequestStack $requestStack,
                                 SessionInterface $session,
@@ -176,15 +175,15 @@ class OrderManager
                 "description" => "Paiement"
             ));
         } catch (\Stripe\Error\ApiConnection $e) {
-            $error = "Erreur de communication avec les serveurs de Stripe, veuillez rééssayer dans un instant";
+            $error = "error.stripe.communication";
             $this->session->getFlashBag()->add('erreur', $error);
             return false;
         } catch (\Stripe\Error\InvalidRequest $e) {
-            $error = "Une erreur interne a été déclarée, celle-ci sera corrigée dans les plus brefs délais, veuillez nous excuser pour la gène occasionnée";
+            $error = "error.stripe.interne";
             $this->session->getFlashBag()->add('erreur', $error);
             return false;
         } catch (\Stripe\Error\Api $e) {
-            $error = "Les serveurs de Stripe ne répondent pas, veuillez rééssayer dans un instant";
+            $error = "error.stripe.serveur";
             $this->session->getFlashBag()->add('erreur', $error);
             return false;
         } catch (\Stripe\Error\Card $e) {

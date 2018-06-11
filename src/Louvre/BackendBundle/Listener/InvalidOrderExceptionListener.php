@@ -10,22 +10,22 @@ namespace Louvre\BackendBundle\Listener;
 
 use Louvre\BackendBundle\Exception\InvalidOrderException;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
-use Symfony\Component\Routing\Router;
+use Symfony\Component\Routing\RouterInterface;
 
 class InvalidOrderExceptionListener
 {
     /**
-     * @var Router
+     * @var RouterInterface
      */
     private $router;
     /**
-     * @var Session
+     * @var SessionInterface
      */
     private $session;
 
-    public function __construct(Router $router, Session $session)
+    public function __construct(RouterInterface $router, SessionInterface $session)
     {
         $this->router = $router;
         $this->session = $session;
@@ -40,7 +40,7 @@ class InvalidOrderExceptionListener
         // holds status code and header details
         if ($exception instanceof InvalidOrderException) {
 
-            $this->session->getFlashBag()->add('erreur', 'Vous n\'avez pas accès à cette page !');
+            $this->session->getFlashBag()->add('erreur', "erreur.page");
             $response = new RedirectResponse($this->router->generate('index'));
             $event->setResponse($response);
         }
