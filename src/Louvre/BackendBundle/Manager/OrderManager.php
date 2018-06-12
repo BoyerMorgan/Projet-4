@@ -14,6 +14,7 @@ use Louvre\BackendBundle\Exception\InvalidOrderException;
 use Louvre\BackendBundle\Utils\LouvreIdGenerator;
 use Louvre\BackendBundle\Utils\LouvreMailSender;
 use Louvre\BackendBundle\Utils\LouvrePriceCalculator;
+use Louvre\BackendBundle\Utils\LouvreStripePaymentChecker;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -43,10 +44,6 @@ class OrderManager
     private $louvreMailSender;
 
     /**
-     * @var string
-     */
-    private $stripePrivateKey;
-    /**
      * @var LouvrePriceCalculator
      */
     private $louvrePriceCalculator;
@@ -54,26 +51,27 @@ class OrderManager
      * @var LouvreIdGenerator
      */
     private $louvreIdGenerator;
-
-
+    /**
+     * @var LouvreStripePaymentChecker
+     */
+    private $louvreStripePaymentChecker;
 
 
     public function __construct(EntityManagerInterface $em,
                                 LouvreMailSender $louvreMailSender,
                                 RequestStack $requestStack,
                                 SessionInterface $session,
-                                $stripePrivateKey,
                                 LouvrePriceCalculator $louvrePriceCalculator,
-                                LouvreIdGenerator $louvreIdGenerator)
+                                LouvreIdGenerator $louvreIdGenerator,
+                                LouvreStripePaymentChecker $louvreStripePaymentChecker)
     {
         $this->session = $session;
         $this->requestStack = $requestStack;
         $this->em = $em;
         $this->louvreMailSender = $louvreMailSender;
-        $this->stripePrivateKey = $stripePrivateKey;
         $this->louvrePriceCalculator = $louvrePriceCalculator;
         $this->louvreIdGenerator = $louvreIdGenerator;
-
+        $this->louvreStripePaymentChecker = $louvreStripePaymentChecker;
     }
 
     /**
@@ -152,46 +150,48 @@ class OrderManager
     /**
      * @param Command $order
      * @return bool
-     * @throws \Doctrine\ORM\OptimisticLockException
-     * @throws \Doctrine\ORM\ORMException
      */
     public function paymentOrder(Command $order)
     {
-        $request = $this->requestStack->getCurrentRequest();
+//        $request = $this->requestStack->getCurrentRequest();
+
+
+//        $token = $request->request->get('stripeToken');
+
+//        $price = $this->session->get('order')->getPrice();
+
+//        try {
+//        \Stripe\Stripe::setApiKey($this->stripePrivateKey);
+//        \Stripe\Charge::create(array(
+//                "amount" => $price * 100,
+//                "currency" => "eur",
+//                "source" => $token,
+//                "description" => "Paiement"
+//            ));
+//        } catch (\Stripe\Error\ApiConnection $e) {
+//            $error = "error.stripe.communication";
+//            $this->session->getFlashBag()->add('erreur', $error);
+//            return false;
+//        } catch (\Stripe\Error\InvalidRequest $e) {
+//            $error = "error.stripe.interne";
+//            $this->session->getFlashBag()->add('erreur', $error);
+//            return false;
+//        } catch (\Stripe\Error\Api $e) {
+//            $error = "error.stripe.serveur";
+//            $this->session->getFlashBag()->add('erreur', $error);
+//            return false;
+//        } catch (\Stripe\Error\Card $e) {
+//            $e_json = $e->getJsonBody();
+//            $error = $e_json['error'];
+//            $this->session->getFlashBag()->add('erreur', $error);
+//            return false;
+//        }
+
         $uniqueId = $this->louvreIdGenerator->generateUniqueId();
-
-        $token = $request->request->get('stripeToken');
-
-        $price = $this->session->get('order')->getPrice();
         $mail = $this->session->get('order')->getMail();
 
-
-        try {
-        \Stripe\Stripe::setApiKey($this->stripePrivateKey);
-        \Stripe\Charge::create(array(
-                "amount" => $price * 100,
-                "currency" => "eur",
-                "source" => $token,
-                "description" => "Paiement"
-            ));
-        } catch (\Stripe\Error\ApiConnection $e) {
-            $error = "error.stripe.communication";
-            $this->session->getFlashBag()->add('erreur', $error);
-            return false;
-        } catch (\Stripe\Error\InvalidRequest $e) {
-            $error = "error.stripe.interne";
-            $this->session->getFlashBag()->add('erreur', $error);
-            return false;
-        } catch (\Stripe\Error\Api $e) {
-            $error = "error.stripe.serveur";
-            $this->session->getFlashBag()->add('erreur', $error);
-            return false;
-        } catch (\Stripe\Error\Card $e) {
-            $e_json = $e->getJsonBody();
-            $error = $e_json['error'];
-            $this->session->getFlashBag()->add('erreur', $error);
-            return false;
-        }
+        if ($this->louvreStripePaymentChecker->CheckPayment($order))
+        {
 
         $order->setOrderStatut($order::PAIEMENT_VALIDE);
         $order->SetOrderId($uniqueId);
@@ -201,6 +201,7 @@ class OrderManager
         $entityManager = $this->em;
         $entityManager->persist($order);
         $entityManager->flush();
+        }
         return true;
     }
 

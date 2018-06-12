@@ -86,6 +86,7 @@ class BackendController extends Controller
      *
      * @Route("/commande/recap", name="recap")
      * @throws \Louvre\BackendBundle\Exception\InvalidOrderException
+     * @throws \Doctrine\ORM\ORMException
      */
     public function recapAction(Request $request, OrderManager $orderManager)
     {
