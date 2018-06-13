@@ -51,10 +51,10 @@ Confirmation avant paiement
                 document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
             </script>
             <div class="row" style="margin-right:-3px;margin-left:-3px">
-            <button class="btn btn-info btn-md"><span class="glyphicon glyphicon-shopping-cart"></span>{{ 'louvre.backendbundle.recap.cb'|trans }}</button>
+            <button class="btn btn-info btn-sm"><span class="glyphicon glyphicon-shopping-cart"></span>{{ 'louvre.backendbundle.recap.cb'|trans }}</button>
                 <div class="btn-group pull-right">
-                <a class="btn btn-info btn-md" href="{{ path("commande") }}">{{ 'louvre.backendbundle.recap.modifiercommande'|trans }}</a>
-                <a class="btn btn-info btn-md" href="{{ path("billets") }}">{{ 'louvre.backendbundle.recap.modifierbillets'|trans }}</a>
+                <a class="btn btn-info btn-sm" href="{{ path("commande") }}">{{ 'louvre.backendbundle.recap.modifiercommande'|trans }}</a>
+                <a class="btn btn-info btn-sm" href="{{ path("billets") }}">{{ 'louvre.backendbundle.recap.modifierbillets'|trans }}</a>
                 </div>
             </div>
         </form>

@@ -143,7 +143,8 @@ class OrderManager
     {
         $this->louvrePriceCalculator->setCommandPrice($order);
         $order->setOrderStatut($order::COMMANDE_EN_ATTENTE);
-
+        return $this->session->set(
+            'order', $order);
     }
 
 
@@ -153,39 +154,6 @@ class OrderManager
      */
     public function paymentOrder(Command $order)
     {
-//        $request = $this->requestStack->getCurrentRequest();
-
-
-//        $token = $request->request->get('stripeToken');
-
-//        $price = $this->session->get('order')->getPrice();
-
-//        try {
-//        \Stripe\Stripe::setApiKey($this->stripePrivateKey);
-//        \Stripe\Charge::create(array(
-//                "amount" => $price * 100,
-//                "currency" => "eur",
-//                "source" => $token,
-//                "description" => "Paiement"
-//            ));
-//        } catch (\Stripe\Error\ApiConnection $e) {
-//            $error = "error.stripe.communication";
-//            $this->session->getFlashBag()->add('erreur', $error);
-//            return false;
-//        } catch (\Stripe\Error\InvalidRequest $e) {
-//            $error = "error.stripe.interne";
-//            $this->session->getFlashBag()->add('erreur', $error);
-//            return false;
-//        } catch (\Stripe\Error\Api $e) {
-//            $error = "error.stripe.serveur";
-//            $this->session->getFlashBag()->add('erreur', $error);
-//            return false;
-//        } catch (\Stripe\Error\Card $e) {
-//            $e_json = $e->getJsonBody();
-//            $error = $e_json['error'];
-//            $this->session->getFlashBag()->add('erreur', $error);
-//            return false;
-//        }
 
         $uniqueId = $this->louvreIdGenerator->generateUniqueId();
         $mail = $this->session->get('order')->getMail();
