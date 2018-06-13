@@ -27,6 +27,7 @@ class HourValidator extends ConstraintValidator
         if (!$order->getHalfDay()
             && $reservationDate->format('Ymd') === $actualDate->format('Ymd')
             && $actualDate->format('H') >= 14
+            && $actualDate->format('H') < 17
         )
         {
             $this->context->buildViolation($constraint->message)
