@@ -21,7 +21,7 @@ louvre:
             tarifreduitsuite: '(étudiant, employé du musée, d’un service du Ministère de la Culture, militaire…)'
             infocommande: 'Informations concernant la commande'
             validercommande: 'Valider la commande'
-            attention: 'Il n''est pas possible de réserver un billet pour un dimanche, un mardi ou un jour ferié !'
+            attention: 'Il n''est pas possible de réserver un billet pour un dimanche, un mardi ou un jour ferié ! Les billets journée ne sont accessibles que jusqu''à 14h pour la date du jour. Il n''est plus possible de commander pour le jour-même passé 17h.'
         billets:
             introduction: 'Informations concernant les billets'
             info1: 'Ceux-ci sont nominatifs, veuillez à bien renseigner les champs "Nom" et "Prénom".'

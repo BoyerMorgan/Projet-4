@@ -22,7 +22,7 @@ louvre:
             tarifreduitsuite: '(student, museum employee, department of the Ministry of Culture, military ...)'
             infocommande: 'Order informations'
             validercommande: 'Validate order'
-            attention: 'It is not possible to order a ticket on a sunday, a tuesday or a holiday day !'
+            attention: 'It is not possible to order a ticket on a sunday, a tuesday or a holiday day ! Day tickets are only available until 2 pm for today''s date. It is no longer possible to order for the same day after 5pm.'
         billets:
             introduction: 'Tickets informations'
             info1: 'These are nominative, please fill in the fields "Name" and "First name".'

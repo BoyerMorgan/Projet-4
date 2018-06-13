@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\HasLifecycleCallbacks()
  * @MyAssert\Ticket(groups={"step1"})
  * @MyAssert\Hour(groups={"step1"})
+ * @MyAssert\EndOfDay(groups={"step1"})
  *
  */
 class Command

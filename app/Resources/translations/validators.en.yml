@@ -2,6 +2,7 @@ musee.ferme.jours.feries: "The museum is closed on holidays"
 musee.ferme.dimanche: "The museum is closed every Sunday of the year"
 musee.ferme.mardi: 'The museum is closed every Tuesday of the year'
 musee.apres.quatorze: 'You can not take day ticket after 14h. Please tick the "Half-day ticket" button or choose another date'
+musee.apres.dixsept: 'You can not order a ticket for the current day after 5PM. Please choose another day'
 musee.plein: 'No places available for this day'
 musee.anterieur: 'It is not possible to book at a date earlier than today '
 adresse.mail: 'Please enter a valid email adress'
